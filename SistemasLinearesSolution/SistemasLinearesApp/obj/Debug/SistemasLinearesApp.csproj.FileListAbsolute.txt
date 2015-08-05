@@ -1,6 +1,0 @@
-C:\Users\ramon.silva\Documents\Visual Studio 2013\Projects\SistemasLinearesSolution\SistemasLinearesApp\bin\Debug\SistemasLinearesApp.exe.config
-C:\Users\ramon.silva\Documents\Visual Studio 2013\Projects\SistemasLinearesSolution\SistemasLinearesApp\bin\Debug\SistemasLinearesApp.exe
-C:\Users\ramon.silva\Documents\Visual Studio 2013\Projects\SistemasLinearesSolution\SistemasLinearesApp\bin\Debug\SistemasLinearesApp.pdb
-C:\Users\ramon.silva\Documents\Visual Studio 2013\Projects\SistemasLinearesSolution\SistemasLinearesApp\obj\Debug\SistemasLinearesApp.csprojResolveAssemblyReference.cache
-C:\Users\ramon.silva\Documents\Visual Studio 2013\Projects\SistemasLinearesSolution\SistemasLinearesApp\obj\Debug\SistemasLinearesApp.exe
-C:\Users\ramon.silva\Documents\Visual Studio 2013\Projects\SistemasLinearesSolution\SistemasLinearesApp\obj\Debug\SistemasLinearesApp.pdb
