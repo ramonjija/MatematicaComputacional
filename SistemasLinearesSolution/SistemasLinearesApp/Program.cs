@@ -10,20 +10,7 @@ namespace SistemasLinearesApp
     {
         public void gauss()
         {
-            /*
-            float[] b = new float[10];
-            float[][] a = new float[10][];
-            float[] x = new float[10];
-            */
-
-            //UTILIZANDO ESTES//
-            /*
-            double[] b = new double[4];
-            //double[][] a = new double[3][];
-            double[,] a = new double[3,4];
-            double[] x = new double[4];
-            */
-
+            //Exemplos de utilização
             //double[] b = { 15, 10, 11 };
             //double[,] a = { { 5, 5, 0 }, { 2, 4, 1 }, { 3, 4, 0 } };
 
@@ -38,18 +25,16 @@ namespace SistemasLinearesApp
 
             double[] x = new double[3];
 
-            int k, i, j; int n = b.Length; double m; //float m;
+            int k, i, j; int n = b.Length; double m; 
 
             for (k = 0; k <= n - 2; k++)
             {
                 for (i = k + 1; i <= n - 1; i++)
                 {
-                    //m = a[i][k] / a[k][k];
                     m = a[i, k] / a[k, k];
 
                    for (j = 0; j < n; j++)
                     {
-                        //a[i][j] = a[i][j] - (m * a[k][j]);
                         a[i,j] = a[i,j] - (m * a[k,j]);
                     }
                     b[i] = b[i] - (m * b[k]);
@@ -64,10 +49,7 @@ namespace SistemasLinearesApp
                 x[k] = b[k];
                 for (i = k + 1; i <= n - 1; i++)
                 {
-                    //x[k] = x[k] - a[k][i] * x[i];
-                    //x[k] = x[k] / a[k][k];
                     x[k] = x[k] - a[k, i] * x[i];
-                    //x[k] = x[k] / a[k, k];
                 }
                 x[k] = x[k] / a[k, k];
             }
@@ -75,24 +57,10 @@ namespace SistemasLinearesApp
             {
                 Console.WriteLine(x[i]);
             }
+            //OK! Funcionando corretamente
         }
-
-        //OK! Funcionando corretamente
-
-        // public void jacobi() { }
-        // public void gaussSeidel { }
-
-
-
-
-        public static void Main(string[] args)
+        public void simples()
         {
-
-            Program SistemaGauss = new Program();
-            SistemaGauss.gauss();
-
-
-            /*
             int[] ListaDeVariaveis = new int[10];
             int[] ListaDeNumeros = new int[10];
             int tamanhoDaArray;
@@ -125,11 +93,22 @@ namespace SistemasLinearesApp
 
             Console.WriteLine(resultadoFinal);
             Console.ReadLine();
-            */
+        }
+
+        
+
+        // public void jacobi() { }
+        // public void gaussSeidel { }
 
 
 
 
+        public static void Main(string[] args)
+        {
+
+            Program Sistema = new Program();
+            Sistema.gauss();
+            Sistema.simples();                       
 
 
         }
