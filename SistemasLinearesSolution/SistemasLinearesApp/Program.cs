@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace SistemasLinearesApp
 {
@@ -20,12 +21,15 @@ namespace SistemasLinearesApp
             //double[] b = { 6, 8, -1 };
             //double[,] a = { { 0.5, -1, 1 }, { 3, 2, 1 }, { 5, -1, -3 } };
             //OK
+            Stopwatch sw = new Stopwatch();
+            TimeSpan tempo;
+            sw.Start();
             double[] b = { 15, 10, 11 };
             double[,] a = { { 5, 5, 0 }, { 2, 4, 1 }, { 3, 4, 0 } };
 
             double[] x = new double[3];
 
-            int k, i, j; int n = b.Length; double m; 
+            int k, i, j; int n = b.Length; double m;
 
             for (k = 0; k <= n - 2; k++)
             {
@@ -33,12 +37,12 @@ namespace SistemasLinearesApp
                 {
                     m = a[i, k] / a[k, k];
 
-                   for (j = 0; j < n; j++)
+                    for (j = 0; j < n; j++)
                     {
-                        a[i,j] = a[i,j] - (m * a[k,j]);
+                        a[i, j] = a[i, j] - (m * a[k, j]);
                     }
                     b[i] = b[i] - (m * b[k]);
-                      
+
                 }
             }
             //Até aqui o calculo está correto!
@@ -53,10 +57,17 @@ namespace SistemasLinearesApp
                 }
                 x[k] = x[k] / a[k, k];
             }
+            sw.Stop();
+            tempo = sw.Elapsed;
+            Console.WriteLine("Resultado utilizando o método de Gauss: X, Y e Z");
+            Console.WriteLine("");
             for (i = 0; i < x.Length; i++)
             {
                 Console.WriteLine(x[i]);
             }
+            Console.WriteLine("");
+            Console.WriteLine("O sistema levou: " + tempo + " para ser resolvido");
+
             //OK! Funcionando corretamente
         }
         public void simples()
@@ -94,10 +105,10 @@ namespace SistemasLinearesApp
             Console.WriteLine(resultadoFinal);
             Console.ReadLine();
         }
+        public void jacobi()
+        {
 
-        
-
-        // public void jacobi() { }
+        }
         // public void gaussSeidel { }
 
 
@@ -108,7 +119,7 @@ namespace SistemasLinearesApp
 
             Program Sistema = new Program();
             Sistema.gauss();
-            Sistema.simples();                       
+            Sistema.simples();
 
 
         }
