@@ -110,23 +110,25 @@ namespace SistemasLinearesApp
         public void jacobi()
         {
             int i, j, k;
+            double soma = 0;
             //double[,] a = { { 2, 3 }, { 5, 7 } };//Matriz dos coeficientes
             //double[,] a = { { 3, -1, -1 }, { -1, 3, 1 }, { 2, 1, 4 } };
             //double[,] a = { { 5, -2, 1 }, { 0.5, 3, 2 }, { -25, 0.5, 2 } };
-            
+
             //double[,] a = { { 4, -2, 1 }, { 1, 5, 3 }, { 2, 1, 4 } };
             double[,] a = { { 5, -2, 1 }, { -1, -7, 3 }, { 2, 1, 8 } };
-            double[] x0 = new double[a.Length];//Vetor de 0
+            //double[] x0 = new double[a.Length];//Vetor de 0
+            
             //double[] b = { 11, 13 };//vetor dos termos constantes
             //double[] b = { 1, 3, 7 };
-            
+
             //double[] b = { 2, 1, 3 };
 
             double[] b = { 3, -2, 1 };
-
+            double[] x0 = new double[b.Length];
             //double[] b = { -0.5, 2.5, 1 };
             //double[] vA = { 1.1, 2.3, 3.3 };//vetor de aproximação inicial
-            
+
             //double[] vA = { 1, 2, 3 };
 
             double[] vA = { 0, 0, 0 };
@@ -143,20 +145,22 @@ namespace SistemasLinearesApp
 
             //Inicia a iteração
             k = 1;
-            Console.WriteLine("Resultado: ");
+            Console.WriteLine("Resultado por Jacobi com " + numDeIteracoes + " iteracoes:");
+            Console.WriteLine("");
             while (k <= numDeIteracoes)
             {
 
                 //Iteração de Jacobi
                 for (i = 0; i < numDeLinhas; i++)
                 {
-                    x0[i] = 0;
+                    //x0[i] = 0;
                     for (j = 0; j <= numDeLinhas - 1; j++)
                     {
                         //if (i == j) continue;
                         if (i != j)
                         {
-                            x0[j] += a[i, j] * vA[j];
+                            //x0[j] += a[i, j] * vA[j];
+                            soma += a[i, j] * vA[j];
                         }
 
                         //x0[i] = x0[i] - a[i, j] * vA[j];
@@ -164,8 +168,15 @@ namespace SistemasLinearesApp
                     }
                     //x0[i] = (x0[i] + b[i]) / a[i, i];
                     //soltem[i] = (x0[i] + b[i]) / a[i, i]; //(a[i, j - 1] - x0[i]) / a[i, i];
-                    soltem[i] = (b[i] - x0[i]) / a[i, i];
+                    
+                    //soltem[i] = (b[i] - x0[i]) / a[i, i];
+
+                    //x0[i] = (b[i] - x0[i]) / a[i, i];
+                    
+                    x0[i] = (b[i] - soma) / a[i, i];
+                   
                 }
+                Array.Copy(x0, vA, x0.Length);
                 //Critério de parada
 
                 /*if (Math.Abs(b[i] - x0[i]) < tol)
@@ -177,14 +188,16 @@ namespace SistemasLinearesApp
                 k = k + 1;
                 x0[i - 1] = b[i - 1];
                 */
+                
+                Console.WriteLine("Iteração " + k);
                 k = k + 1;
-
+                for (int l = 0; l < numDeLinhas; l++)
+                {
+                    Console.WriteLine(x0[l]);
+                }
+                Console.WriteLine("");
             }
-            for (int l = 0; l < numDeLinhas; l++)
-            {
-                Console.WriteLine(soltem[l]);
-            }
-            Console.ReadLine();
+            Console.ReadKey();
 
 
             /*int i, j, k;
@@ -221,14 +234,17 @@ namespace SistemasLinearesApp
 
         }
 
-        // public void gaussSeidel { }
+        public void gaussSeidel()
+        {
+            throw new NotImplementedException();
+        }
 
 
         public static void Main(string[] args)
         {
 
             Program Sistema = new Program();
-            Sistema.gauss();
+            //Sistema.gauss();
             //Sistema.simples();
             Sistema.jacobi();
 
