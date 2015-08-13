@@ -60,10 +60,15 @@ namespace SistemasLinearesApp
             Stopwatch sw = new Stopwatch();
             TimeSpan tempo = TimeSpan.Zero;
             sw.Start();
-            double[] b = { 15, 10, 11 };
-            double[,] a = { { 5, 5, 0 }, { 2, 4, 1 }, { 3, 4, 0 } };
+            //double[] b = { 15, 10, 11 };
+            //double[,] a = { { 5, 5, 0 }, { 2, 4, 1 }, { 3, 4, 0 } };
 
-            double[] x = new double[3];
+            double[] b = { 7, 3, 5 };
+            double[,] a = { { 4, 2, -9 }, {5, -6, -8 }, { 1, -2, 15 } };
+
+
+
+            double[] x = new double[b.Length];
 
             int k, i, j; int n = b.Length; double m;
 
@@ -114,31 +119,29 @@ namespace SistemasLinearesApp
             TimeSpan tempo = TimeSpan.Zero;
             sw.Start();
             int i, j, k;
-            double soma = 0;
+            //double soma = 0;
             //double[,] a = { { 2, 3 }, { 5, 7 } };//Matriz dos coeficientes
-            //double[,] a = { { 3, -1, -1 }, { -1, 3, 1 }, { 2, 1, 4 } };
-            //double[,] a = { { 5, -2, 1 }, { 0.5, 3, 2 }, { -25, 0.5, 2 } };
 
-            //double[,] a = { { 4, -2, 1 }, { 1, 5, 3 }, { 2, 1, 4 } };
-            double[,] a = { { 5, -2, 1 }, { -1, -7, 3 }, { 2, 1, 8 } };
+
+            //double[,] a = { { 5, -2, 1 }, { -1, -7, 3 }, { 2, 1, 8 } };<---
+            //NOVO TESTE 
+            double[] b = { 7, 3, -5 };
+            double[,] a = { { 4, 2, -9 }, { 5, -6, -8 }, { 1, -2, 15 } };
+            //
+
             //double[] x0 = new double[a.Length];//Vetor de 0
 
             //double[] b = { 11, 13 };//vetor dos termos constantes
-            //double[] b = { 1, 3, 7 };
-
-            //double[] b = { 2, 1, 3 };
-
-            double[] b = { 3, -2, 1 };
+            //double[] b = { 3, -2, 1 }; <---
             double[] x0 = new double[b.Length];
-            //double[] b = { -0.5, 2.5, 1 };
+
             //double[] vA = { 1.1, 2.3, 3.3 };//vetor de aproximação inicial
 
-            //double[] vA = { 1, 2, 3 };
-
-            double[] vA = { 0, 0, 0 };
+            //double[] vA = { 0, 0, 0 };<---
+            double[] vA = { 1, 2, 3 };
 
             //const int tol = 2; //Tolerancia
-            const int numDeIteracoes = 10; //Numero maximo de iterações
+            const int numDeIteracoes = 3; //Numero maximo de iterações
             double[] soltem = new double[3];
             double[] sol = new double[3];
 
@@ -157,27 +160,16 @@ namespace SistemasLinearesApp
                 //Iteração de Jacobi
                 for (i = 0; i < numDeLinhas; i++)
                 {
-                    //x0[i] = 0;
+                    x0[i] = 0;
                     for (j = 0; j <= numDeLinhas - 1; j++)
                     {
-                        //if (i == j) continue;
                         if (i != j)
                         {
-                            //x0[j] += a[i, j] * vA[j];
-                            soma += a[i, j] * vA[j];
+                            Math.Round((x0[i] += a[i, j] * vA[j]),3);
                         }
 
-                        //x0[i] = x0[i] - a[i, j] * vA[j];
-                        //x0[i] + a[i, j] * vA[j];
                     }
-                    //x0[i] = (x0[i] + b[i]) / a[i, i];
-                    //soltem[i] = (x0[i] + b[i]) / a[i, i]; //(a[i, j - 1] - x0[i]) / a[i, i];
-
-                    //soltem[i] = (b[i] - x0[i]) / a[i, i];
-
-                    //x0[i] = (b[i] - x0[i]) / a[i, i];
-
-                    x0[i] = (b[i] - soma) / a[i, i];
+                    x0[i] = Math.Round(((b[i] - x0[i]) / a[i, i]), 3);
 
                 }
                 Array.Copy(x0, vA, x0.Length);
@@ -216,18 +208,24 @@ namespace SistemasLinearesApp
             sw.Start();
             int i, j, k;
             double soma = 0;
-            double[,] a = { { 5, -2, 1 }, { -1, -7, 3 }, { 2, 1, 8 } };
-            double[] b = { 3, -2, 1 };
-            double[] x0 = new double[b.Length];
+            //double[,] a = { { 5, -2, 1 }, { -1, -7, 3 }, { 2, 1, 8 } };
+            //double[] b = { 3, -2, 1 };
+
+            //NOVO TESTE 
+            double[] b = { 7, 3, -5 };
+            double[,] a = { { 4, 2, -9 }, { 5, -6, -8 }, { 1, -2, 15 } };
+
+            double[] x0 = { 1, 2, 3 }; //new double[b.Length];
             //double[] vA = { 0, 0, 0 };
-            const int numDeIteracoes = 10;
+            const int numDeIteracoes = 3;
             double[] soltem = new double[3];
             double[] sol = new double[3];
 
             int numDeLinhas = 3;
 
             //Cria zeros na Eq.
-            Utilidades.zeros(x0);
+            //Utilidades.zeros(x0);
+            
 
             //Inicia a iteração
             k = 1;
@@ -289,15 +287,63 @@ namespace SistemasLinearesApp
             Console.ReadKey();
         }
 
+        public void newJacobi()
+        {
+            int numiter = 0;
+            bool tolexceeded = true;
+            int i, j;
+            double[] xold = new double[3];
+            double sum;
+
+            int n = 3;
+            double[] b = { 7, 3, -5 };
+            double[,] a = { { 4, 2, -9 }, { 5, -6, -8 }, { 1, -2, 15 } };
+            double[] x = { 1, 2, 3 };
+            int maxiter = 3;
+            double tol = 0.0000001;
+
+            for (i = 0; i < n; i++)
+                x[i] = b[i] / a[i,i];
+
+            while (tolexceeded && numiter < maxiter)
+            {
+                for (i = 0; i < n; ++i)
+                    xold[i] = x[i];
+
+                for (i = 0; i < n; ++i)
+                {
+                    sum = b[i];
+                    for (j = 0; j < n; ++j)
+                        if (i != j)
+                            sum -= a[i,j] * xold[j];
+
+                    x[i] = sum / a[i,i];
+                }
+                tolexceeded = false;
+                for (i = 0; i < n; i++)
+                    if (Math.Abs(x[i] - xold[i]) > Math.Abs(xold[i] * tol))
+                        tolexceeded = true;
+                ++numiter;
+            }
+            Console.Write(tolexceeded);
+            Console.WriteLine();
+
+            for (int z = 0; z < n; z++)
+                Console.WriteLine(x[z]);
+        }
+
 
         public static void Main(string[] args)
         {
 
             Program Sistema = new Program();
             //Sistema.simples();
-            Sistema.gauss();
+            //Sistema.gauss();
             Sistema.jacobi();
-            Sistema.gaussSeidel();
+            Console.ReadLine();
+            //Sistema.gaussSeidel();
+            //Sistema.newJacobi();
+            //Console.ReadLine();
 
 
         }
