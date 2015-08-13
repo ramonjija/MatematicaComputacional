@@ -60,11 +60,11 @@ namespace SistemasLinearesApp
             Stopwatch sw = new Stopwatch();
             TimeSpan tempo = TimeSpan.Zero;
             sw.Start();
-            //double[] b = { 15, 10, 11 };
-            //double[,] a = { { 5, 5, 0 }, { 2, 4, 1 }, { 3, 4, 0 } };
+            double[] b = { 15, 10, 11 };
+            double[,] a = { { 5, 5, 0 }, { 2, 4, 1 }, { 3, 4, 0 } };
 
-            double[] b = { 7, 3, 5 };
-            double[,] a = { { 4, 2, -9 }, {5, -6, -8 }, { 1, -2, 15 } };
+            //double[] b = { 7, 3, -5 };
+            //double[,] a = { { 4, 2, -9 }, {5, -6, -8 }, { 1, -2, 15 } };
 
 
 
@@ -104,7 +104,7 @@ namespace SistemasLinearesApp
             Console.WriteLine("");
             for (i = 0; i < x.Length; i++)
             {
-                Console.WriteLine(x[i]);
+                Console.WriteLine(Math.Round((x[i]),3));
             }
             Console.WriteLine("");
             Console.WriteLine("O sistema levou: " + tempo + " para ser resolvido");
@@ -237,26 +237,16 @@ namespace SistemasLinearesApp
                 //Iteração de Gauss-Seidell
                 for (i = 0; i < numDeLinhas; i++)
                 {
-                    //x0[i] = 0;
+                    soma = 0;
                     for (j = 0; j <= numDeLinhas - 1; j++)
                     {
-                        //if (i == j) continue;
                         if (i != j)
                         {
-                            soma += a[i, j] * x0[j];
+                            soma += Math.Round((a[i, j] * x0[j]),3);
                         }
 
-                        //x0[i] = x0[i] - a[i, j] * vA[j];
-                        //x0[i] + a[i, j] * vA[j];
                     }
-                    //x0[i] = (x0[i] + b[i]) / a[i, i];
-                    //soltem[i] = (x0[i] + b[i]) / a[i, i]; //(a[i, j - 1] - x0[i]) / a[i, i];
-
-                    //soltem[i] = (b[i] - x0[i]) / a[i, i];
-
-                    //x0[i] = (b[i] - x0[i]) / a[i, i];
-
-                    x0[i] = (b[i] - soma) / a[i, i];
+                    x0[i] = Math.Round(((b[i] - soma) / a[i, i]),3);
 
                 }
                 //Array.Copy(x0, vA, x0.Length);
@@ -287,64 +277,14 @@ namespace SistemasLinearesApp
             Console.ReadKey();
         }
 
-        public void newJacobi()
-        {
-            int numiter = 0;
-            bool tolexceeded = true;
-            int i, j;
-            double[] xold = new double[3];
-            double sum;
-
-            int n = 3;
-            double[] b = { 7, 3, -5 };
-            double[,] a = { { 4, 2, -9 }, { 5, -6, -8 }, { 1, -2, 15 } };
-            double[] x = { 1, 2, 3 };
-            int maxiter = 3;
-            double tol = 0.0000001;
-
-            for (i = 0; i < n; i++)
-                x[i] = b[i] / a[i,i];
-
-            while (tolexceeded && numiter < maxiter)
-            {
-                for (i = 0; i < n; ++i)
-                    xold[i] = x[i];
-
-                for (i = 0; i < n; ++i)
-                {
-                    sum = b[i];
-                    for (j = 0; j < n; ++j)
-                        if (i != j)
-                            sum -= a[i,j] * xold[j];
-
-                    x[i] = sum / a[i,i];
-                }
-                tolexceeded = false;
-                for (i = 0; i < n; i++)
-                    if (Math.Abs(x[i] - xold[i]) > Math.Abs(xold[i] * tol))
-                        tolexceeded = true;
-                ++numiter;
-            }
-            Console.Write(tolexceeded);
-            Console.WriteLine();
-
-            for (int z = 0; z < n; z++)
-                Console.WriteLine(x[z]);
-        }
-
-
         public static void Main(string[] args)
         {
 
             Program Sistema = new Program();
             //Sistema.simples();
-            //Sistema.gauss();
+            Sistema.gauss();
             Sistema.jacobi();
-            Console.ReadLine();
-            //Sistema.gaussSeidel();
-            //Sistema.newJacobi();
-            //Console.ReadLine();
-
+            Sistema.gaussSeidel();
 
         }
     }
