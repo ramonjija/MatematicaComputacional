@@ -60,11 +60,11 @@ namespace SistemasLinearesApp
             Stopwatch sw = new Stopwatch();
             TimeSpan tempo = TimeSpan.Zero;
             sw.Start();
-            double[] b = { 15, 10, 11 };
-            double[,] a = { { 5, 5, 0 }, { 2, 4, 1 }, { 3, 4, 0 } };
+            //double[] b = { 15, 10, 11 };
+            //double[,] a = { { 5, 5, 0 }, { 2, 4, 1 }, { 3, 4, 0 } };
 
-            //double[] b = { 7, 3, -5 };
-            //double[,] a = { { 4, 2, -9 }, {5, -6, -8 }, { 1, -2, 15 } };
+            double[] b = { 7, 3, -5 };
+            double[,] a = { { 4, 2, -9 }, {5, -6, -8 }, { 1, -2, 15 } };
 
 
 
@@ -107,7 +107,7 @@ namespace SistemasLinearesApp
                 Console.WriteLine(Math.Round((x[i]),3));
             }
             Console.WriteLine("");
-            Console.WriteLine("O sistema levou: " + tempo + " para ser resolvido");
+            Console.WriteLine("O sistema levou: " + tempo + " com o metodo de Gauss para ser resolvido");
             Console.WriteLine("");
             //Console.ReadKey();
             //OK! Funcionando corretamente
@@ -141,7 +141,7 @@ namespace SistemasLinearesApp
             double[] vA = { 1, 2, 3 };
 
             //const int tol = 2; //Tolerancia
-            const int numDeIteracoes = 3; //Numero maximo de iterações
+            const int numDeIteracoes = 50; //Numero maximo de iterações
             double[] soltem = new double[3];
             double[] sol = new double[3];
 
@@ -195,13 +195,13 @@ namespace SistemasLinearesApp
             }
             sw.Stop();
             tempo = sw.Elapsed;
-            Console.WriteLine("O sistema levou " + tempo + " para ser resolvido");
+            Console.WriteLine("O sistema levou " + tempo + " com o metodo de Jacobi para ser resolvido");
             Console.WriteLine("");
             //Console.ReadKey();
 
         }
 
-        public void gaussSeidel()
+        public void gaussSeidel() //OK
         {
             Stopwatch sw = new Stopwatch();
             TimeSpan tempo;
@@ -217,7 +217,7 @@ namespace SistemasLinearesApp
 
             double[] x0 = { 1, 2, 3 }; //new double[b.Length];
             //double[] vA = { 0, 0, 0 };
-            const int numDeIteracoes = 3;
+            const int numDeIteracoes = 50;
             double[] soltem = new double[3];
             double[] sol = new double[3];
 
@@ -272,7 +272,7 @@ namespace SistemasLinearesApp
             }
             sw.Stop();
             tempo = sw.Elapsed;
-            Console.WriteLine("O sistema levou " + tempo + " para ser resolvido");
+            Console.WriteLine("O sistema levou " + tempo + " com o metodo de Seidel para ser resolvido");
             Console.WriteLine("");
             Console.ReadKey();
         }
@@ -283,7 +283,9 @@ namespace SistemasLinearesApp
             Program Sistema = new Program();
             //Sistema.simples();
             Sistema.gauss();
+            Console.ReadKey();
             Sistema.jacobi();
+            Console.ReadKey();
             Sistema.gaussSeidel();
 
         }
