@@ -17,12 +17,14 @@ namespace SistemasLinearesApp
             string numeroLido;
             double resultadoFinal = 0.0000f;
 
-            Console.WriteLine("Digite quantas incognitas o sistema possui:");
+            Console.WriteLine("Este sistema resolve equações do tipo aX+b:");
 
-            tamanhoDaArray = Convert.ToInt32(Console.ReadLine()) + 1;
+            //tamanhoDaArray = Convert.ToInt32(Console.ReadLine()) + 1;
+            tamanhoDaArray = 2;
+            Console.WriteLine("Digite o valor dos coeficientes (a e b) com o sinal.");
             for (int i = 1; i <= tamanhoDaArray; i++)
             {
-                Console.WriteLine("A seguir deve-se digitar o valor dos coeficientes (a, b, c, etc) com o sinal.");
+                
                 Console.WriteLine("Digite o valor do numero " + i);
                 numeroLido = Console.ReadLine();
                 if (numeroLido != "")
@@ -32,7 +34,7 @@ namespace SistemasLinearesApp
                 else
                 {
                     --i;
-                    Console.WriteLine("Digite um valor.");
+                    Console.WriteLine("Digite um numero.");
                 }
             }
 
