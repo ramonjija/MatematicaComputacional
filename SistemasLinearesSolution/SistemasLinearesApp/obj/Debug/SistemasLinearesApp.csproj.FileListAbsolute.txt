@@ -10,9 +10,3 @@ C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\SistemasLinearesSo
 C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\SistemasLinearesSolution\SistemasLinearesApp\bin\Debug\SistemasLinearesApp.exe
 C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\SistemasLinearesSolution\SistemasLinearesApp\bin\Debug\SistemasLinearesApp.pdb
 C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\SistemasLinearesSolution\SistemasLinearesApp\obj\Debug\SistemasLinearesApp.csprojResolveAssemblyReference.cache
-C:\Users\Ramon\Documents\GitHub\MatematicaComputacional\SistemasLinearesSolution\SistemasLinearesApp\bin\Debug\SistemasLinearesApp.exe.config
-C:\Users\Ramon\Documents\GitHub\MatematicaComputacional\SistemasLinearesSolution\SistemasLinearesApp\obj\Debug\SistemasLinearesApp.exe
-C:\Users\Ramon\Documents\GitHub\MatematicaComputacional\SistemasLinearesSolution\SistemasLinearesApp\obj\Debug\SistemasLinearesApp.pdb
-C:\Users\Ramon\Documents\GitHub\MatematicaComputacional\SistemasLinearesSolution\SistemasLinearesApp\bin\Debug\SistemasLinearesApp.exe
-C:\Users\Ramon\Documents\GitHub\MatematicaComputacional\SistemasLinearesSolution\SistemasLinearesApp\bin\Debug\SistemasLinearesApp.pdb
-C:\Users\Ramon\Documents\GitHub\MatematicaComputacional\SistemasLinearesSolution\SistemasLinearesApp\obj\Debug\SistemasLinearesApp.csprojResolveAssemblyReference.cache
