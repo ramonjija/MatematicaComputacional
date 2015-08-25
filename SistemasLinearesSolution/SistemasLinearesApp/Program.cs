@@ -24,7 +24,7 @@ namespace SistemasLinearesApp
             Console.WriteLine("Digite o valor dos coeficientes (a e b) com o sinal.");
             for (int i = 1; i <= tamanhoDaArray; i++)
             {
-                
+
                 Console.WriteLine("Digite o valor do numero " + i);
                 numeroLido = Console.ReadLine();
                 if (numeroLido != "")
@@ -47,7 +47,7 @@ namespace SistemasLinearesApp
             Console.ReadLine();
         }
 
-        public void gauss()
+        public void gauss(int exemplo)
         {
             //Exemplos de utilização
             //double[] b = { 15, 10, 11 };
@@ -65,14 +65,26 @@ namespace SistemasLinearesApp
             //double[] b = { 15, 10, 11 };
             //double[,] a = { { 5, 5, 0 }, { 2, 4, 1 }, { 3, 4, 0 } };
 
+            //Exemplo youtube
+            //double[] b = { 7, -4, 9 };
+            //double[,] a = { { 10, 2, -1 }, { 1, 8, 3 }, { -2, -1, 10 } };
+
+            //TESTE FUNCIONAL
             double[] b = { 7, 3, -5 };
-            double[,] a = { { 4, 2, -9 }, {5, -6, -8 }, { 1, -2, 15 } };
+            double[,] a = { { 4, 2, -9 }, { 5, -6, -8 }, { 1, -2, 15 } };
+
+            if (exemplo == 1)
+            {
+                Utilidades.trocaMatriz(a, b);
+            }
 
 
 
             double[] x = new double[b.Length];
 
-            int k, i, j; int n = b.Length; double m;
+            int k, i, j;
+            int n = b.Length;
+            double m;
 
             for (k = 0; k <= n - 2; k++)
             {
@@ -106,7 +118,7 @@ namespace SistemasLinearesApp
             Console.WriteLine("");
             for (i = 0; i < x.Length; i++)
             {
-                Console.WriteLine(Math.Round((x[i]),3));
+                Console.WriteLine(Math.Round((x[i]), 3));
             }
             Console.WriteLine("");
             Console.WriteLine("O sistema levou: " + tempo + " com o metodo de Gauss para ser resolvido");
@@ -115,42 +127,42 @@ namespace SistemasLinearesApp
             //OK! Funcionando corretamente
         }
 
-        public void jacobi()
+        public void jacobi(int numDeIteracoes, int exemplo)
         {
             Stopwatch sw = new Stopwatch();
             TimeSpan tempo = TimeSpan.Zero;
             sw.Start();
             int i, j, k;
-            //double soma = 0;
-            //double[,] a = { { 2, 3 }, { 5, 7 } };//Matriz dos coeficientes
 
-
-            //double[,] a = { { 5, -2, 1 }, { -1, -7, 3 }, { 2, 1, 8 } };<---
-            //NOVO TESTE 
+            //TESTE FUNCIONAL
             double[] b = { 7, 3, -5 };
             double[,] a = { { 4, 2, -9 }, { 5, -6, -8 }, { 1, -2, 15 } };
-            //
 
-            //double[] x0 = new double[a.Length];//Vetor de 0
 
-            //double[] b = { 11, 13 };//vetor dos termos constantes
-            //double[] b = { 3, -2, 1 }; <---
+            //Teste youtube
+            //double[] b = { 7, -4, 9 };
+            //double[,] a = { { 10, 2, -1 }, { 1, 8, 3 }, { -2, -1, 10 } };
+
             double[] x0 = new double[b.Length];
 
-            //double[] vA = { 1.1, 2.3, 3.3 };//vetor de aproximação inicial
+            //Teste youtube
+            //double[] vA = { 0, 0, 0 };
 
-            //double[] vA = { 0, 0, 0 };<---
+            //TESTE FUNCIONAL
             double[] vA = { 1, 2, 3 };
 
-            //const int tol = 2; //Tolerancia
-            const int numDeIteracoes = 50; //Numero maximo de iterações
-            double[] soltem = new double[3];
-            double[] sol = new double[3];
+            //const int numDeIteracoes = 50; //Numero maximo de iterações
 
             int numDeLinhas = 3;
 
-            //Cria zeros na Eq.
+            if (exemplo == 1)
+            {
+                Utilidades.trocaMatriz(a, b, vA);
+            }
+
+            //Cria zeros na Equação para que seja dividia em 2, com pivo 0
             Utilidades.zeros(x0);
+
 
             //Inicia a iteração
             k = 1;
@@ -167,25 +179,21 @@ namespace SistemasLinearesApp
                     {
                         if (i != j)
                         {
-                            Math.Round((x0[i] += a[i, j] * vA[j]),3);
+                            Math.Round((x0[i] += a[i, j] * vA[j]), 3);
                         }
 
                     }
                     x0[i] = Math.Round(((b[i] - x0[i]) / a[i, i]), 3);
 
+                    //Critério de parada não é necessário para este exemplo
+                    /*if (Math.Abs(b[i] - x0[i]) < tol)
+                    {
+                        Console.WriteLine(x0[i]);
+                        break;
+                    }*/
+
                 }
                 Array.Copy(x0, vA, x0.Length);
-                //Critério de parada
-
-                /*if (Math.Abs(b[i] - x0[i]) < tol)
-                {
-                    Console.WriteLine(x0[i]);
-                    break;
-                }
-                Array.Copy(x0, b, numDeLinhas);
-                k = k + 1;
-                x0[i - 1] = b[i - 1];
-                */
 
                 Console.WriteLine("Iteração " + k);
                 k = k + 1;
@@ -203,31 +211,39 @@ namespace SistemasLinearesApp
 
         }
 
-        public void gaussSeidel() //OK
+        public void gaussSeidel(int numDeIteracoes, int exemplo) //OK
         {
             Stopwatch sw = new Stopwatch();
             TimeSpan tempo;
             sw.Start();
             int i, j, k;
             double soma = 0;
-            //double[,] a = { { 5, -2, 1 }, { -1, -7, 3 }, { 2, 1, 8 } };
-            //double[] b = { 3, -2, 1 };
 
-            //NOVO TESTE 
+            //NOVO TESTE FUNCIONAL<-----
             double[] b = { 7, 3, -5 };
             double[,] a = { { 4, 2, -9 }, { 5, -6, -8 }, { 1, -2, 15 } };
 
-            double[] x0 = { 1, 2, 3 }; //new double[b.Length];
-            //double[] vA = { 0, 0, 0 };
-            const int numDeIteracoes = 50;
-            double[] soltem = new double[3];
-            double[] sol = new double[3];
+            //Teste Youtube
+            //double[] b = { 7, -4, 9 };
+            //double[,] a = { { 10, 2, -1 }, { 1, 8, 3 }, { -2, -1, 10 } };
+
+            //Teste funcional
+            double[] x0 = { 1, 2, 3 };
+
+            //Teste youtube
+            //double[] x0 = { 0, 0, 0 };
+            //const int numDeIteracoes = 50;
 
             int numDeLinhas = 3;
 
+            if (exemplo == 1)
+            {
+                Utilidades.trocaMatriz(a, b, x0);
+            }
+
             //Cria zeros na Eq.
-            //Utilidades.zeros(x0);
-            
+            Utilidades.zeros(x0);
+
 
             //Inicia a iteração
             k = 1;
@@ -244,15 +260,15 @@ namespace SistemasLinearesApp
                     {
                         if (i != j)
                         {
-                            soma += Math.Round((a[i, j] * x0[j]),3);
+                            soma += Math.Round((a[i, j] * x0[j]), 3);
                         }
 
                     }
-                    x0[i] = Math.Round(((b[i] - soma) / a[i, i]),3);
+                    x0[i] = Math.Round(((b[i] - soma) / a[i, i]), 3);
 
                 }
                 //Array.Copy(x0, vA, x0.Length);
-                //Critério de parada
+                //Critério de parada não é necessário para este exemplo
 
                 /*if (Math.Abs(b[i] - x0[i]) < tol)
                 {
@@ -284,11 +300,21 @@ namespace SistemasLinearesApp
 
             Program Sistema = new Program();
             //Sistema.simples();
-            Sistema.gauss();
+
+
+            int iteracoes = 10;
+            int exemplo = 1;
+
+            Utilidades.printaMatrizExemplo(exemplo);
             Console.ReadKey();
-            Sistema.jacobi();
+            Sistema.gauss(exemplo);
             Console.ReadKey();
-            Sistema.gaussSeidel();
+            Sistema.jacobi(iteracoes, exemplo);
+            Console.ReadKey();
+            Sistema.gaussSeidel(iteracoes, exemplo);
+
+            
+            
 
         }
     }
