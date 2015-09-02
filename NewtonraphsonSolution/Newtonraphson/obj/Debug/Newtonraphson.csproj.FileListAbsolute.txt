@@ -1,0 +1,5 @@
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\NewtonraphsonSolution\Newtonraphson\bin\Debug\Newtonraphson.exe
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\NewtonraphsonSolution\Newtonraphson\bin\Debug\Newtonraphson.pdb
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\NewtonraphsonSolution\Newtonraphson\obj\Debug\Newtonraphson.csprojResolveAssemblyReference.cache
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\NewtonraphsonSolution\Newtonraphson\obj\Debug\Newtonraphson.exe
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\NewtonraphsonSolution\Newtonraphson\obj\Debug\Newtonraphson.pdb

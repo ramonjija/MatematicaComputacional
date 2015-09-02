@@ -302,8 +302,8 @@ namespace SistemasLinearesApp
             //Sistema.simples();
 
 
-            int iteracoes = 10;
-            int exemplo = 1;
+            int iteracoes = 50;
+            int exemplo = 2;
 
             Utilidades.printaMatrizExemplo(exemplo);
             Console.ReadKey();
