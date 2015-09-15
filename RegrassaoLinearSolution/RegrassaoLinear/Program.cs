@@ -5,10 +5,10 @@ using System.Text;
 
 namespace RegrassaoLinear
 {
-    class Program
+    public class Program
     {
 
-        static void FuncRegressaoLinear()
+        public static string FuncRegressaoLinear()
         {
 
             double[] xi = { 1, 2, 3, 4, 5, 6, 7 };
@@ -43,8 +43,8 @@ namespace RegrassaoLinear
             a1 = ((n * Sxiyi) - (Sxi * Syi)) / ((n * Sxi2) - (Sxi * Sxi));
             a0 = (mediaYi - a1 * mediaXi);
 
-            Console.WriteLine(UtilCalc.FormaEquacao(a0, a1));
-
+            //Console.WriteLine(UtilCalc.FormaEquacao(a0, a1));
+            return UtilCalc.FormaEquacao(a0, a1);
 
 
         }
@@ -52,7 +52,8 @@ namespace RegrassaoLinear
 
         static void Main(string[] args)
         {
-            Program.FuncRegressaoLinear();
+            string resultado = FuncRegressaoLinear();
+            Console.WriteLine(resultado);
             Console.ReadLine();
             
         }

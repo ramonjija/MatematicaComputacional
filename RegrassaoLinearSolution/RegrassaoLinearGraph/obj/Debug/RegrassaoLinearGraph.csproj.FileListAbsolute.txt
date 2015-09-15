@@ -1,0 +1,11 @@
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinearGraph\bin\Debug\RegrassaoLinearGraph.exe.config
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinearGraph\bin\Debug\RegrassaoLinearGraph.exe
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinearGraph\bin\Debug\RegrassaoLinearGraph.pdb
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinearGraph\bin\Debug\RegrassaoLinear.exe
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinearGraph\bin\Debug\RegrassaoLinear.pdb
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinearGraph\obj\Debug\RegrassaoLinearGraph.csprojResolveAssemblyReference.cache
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinearGraph\obj\Debug\RegrassaoLinearGraph.Form1.resources
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinearGraph\obj\Debug\RegrassaoLinearGraph.Properties.Resources.resources
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinearGraph\obj\Debug\RegrassaoLinearGraph.csproj.GenerateResource.Cache
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinearGraph\obj\Debug\RegrassaoLinearGraph.exe
+C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinearGraph\obj\Debug\RegrassaoLinearGraph.pdb
