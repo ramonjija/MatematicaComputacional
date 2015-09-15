@@ -23,8 +23,12 @@ namespace RegrassaoLinearGraph
 
         private void Obter_Reta(object sender, EventArgs e)
         {
-            Label lblFunc = (Label)Controls.Find("LblFunc", true).FirstOrDefault();
-            lblFunc.Text = RegrassaoLinear.Program.FuncRegressaoLinear();
+            //Label lblFunc = (Label)Controls.Find("LblFunc", true).FirstOrDefault();
+
+            Label lblFunc = new Label();
+            lblFunc = (Label)Controls.Find("LblFuncao", true).FirstOrDefault();
+
+            lblFunc.Text = RegrassaoLinear.Program.FuncRegressaoLinear(); ;
         }
     }
 }
