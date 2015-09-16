@@ -15,6 +15,7 @@ namespace RegrassaoLinear
         private double syx { get; set; }
         private double r2 { get; set; }
         private double[] yAjustado { get; set; }
+        private double sy { get; set; }
 
 
         /// <summary>
@@ -221,7 +222,7 @@ namespace RegrassaoLinear
 
             for (int i = 0; i < this.st.Length; i++)
             {
-                SomaSr += st[i];
+                SomaSr += sr[i];
             }
 
             return SomaSr;
@@ -241,6 +242,14 @@ namespace RegrassaoLinear
         public double ObterR2()
         {
             return this.r2;
+        }
+        /// <summary>
+        /// Método responsável por obter o somatório de yi
+        /// </summary>
+        /// <returns>double object.ObterSomatorioY()</returns>
+        public double ObterSomatorioY()
+        {
+            return this.sy;
         }
         /// <summary>
         /// Método responsável por obter os valores ajustados de Y
