@@ -14,6 +14,7 @@ namespace RegrassaoLinear
         private double[] sr { get; set; }
         private double syx { get; set; }
         private double r2 { get; set; }
+        private double[] yAjustado { get; set; }
 
 
         /// <summary>
@@ -23,7 +24,7 @@ namespace RegrassaoLinear
         /// <returns>Object object.CalcularRegressaoLinear()</returns>
         public EquacaoLinear CalcularRegressaoLinear()
         {
-            
+
             double[] xi = { 1, 2, 3, 4, 5, 6, 7 };
             double[] yi = { 0.5, 2.5, 2.0, 4.0, 3.5, 6.0, 5.5 };
 
@@ -45,6 +46,8 @@ namespace RegrassaoLinear
             double tempSr = 0;
             this.sr = new double[n];
 
+            this.yAjustado = new double[n];
+
 
             //Inicio do calculo
 
@@ -60,7 +63,7 @@ namespace RegrassaoLinear
             a0 = (mediaYi - a1 * mediaXi);
 
 
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
                 this.st[i] = ((yi[i] - mediaYi) * (yi[i] - mediaYi));
                 tempSt += this.st[i];
@@ -68,14 +71,20 @@ namespace RegrassaoLinear
                 //this.st[i] = tempSt;
                 this.sr[i] = ((yi[i] - a1 * xi[i] - a0) * (yi[i] - a1 * xi[i] - a0));
                 tempSr += this.sr[i];
-                
+
+                yAjustado[i] = a0 + a1 * xi[i];
+
+
             }
+
+
 
             this.syx = Math.Sqrt(tempSr / (n - 2));
             this.r2 = (tempSt - tempSr) / tempSt;
             this.a1 = a1;
             this.a0 = a0;
             this.equacao = this.FormaEquacao(a0, a1);
+            this.yAjustado = yAjustado;
 
             return this;
 
@@ -108,6 +117,8 @@ namespace RegrassaoLinear
             double tempSr = 0;
             this.sr = new double[n];
 
+            this.yAjustado = new double[n];
+
 
             //Inicio do calculo
 
@@ -132,6 +143,8 @@ namespace RegrassaoLinear
                 this.sr[i] = ((yi[i] - a1 * xi[i] - a0) * (yi[i] - a1 * xi[i] - a0));
                 tempSr += this.sr[i];
 
+                yAjustado[i] = a0 + a1 * xi[i];
+
             }
 
             this.syx = Math.Sqrt(tempSr / (n - 2));
@@ -139,6 +152,7 @@ namespace RegrassaoLinear
             this.a1 = a1;
             this.a0 = a0;
             this.equacao = this.FormaEquacao(a0, a1);
+            this.yAjustado = yAjustado;
 
             return this;
         }
@@ -182,7 +196,7 @@ namespace RegrassaoLinear
         {
             double SomaSt = 0;
 
-            for(int i = 0; i < this.st.Length; i++)
+            for (int i = 0; i < this.st.Length; i++)
             {
                 SomaSt += st[i];
             }
@@ -227,6 +241,14 @@ namespace RegrassaoLinear
         public double ObterR2()
         {
             return this.r2;
+        }
+        /// <summary>
+        /// Método responsável por obter os valores ajustados de Y
+        /// </summary>
+        /// <returns>double[] object.ObterValoresAjustados()</returns>
+        public double[] ObterValoresAjustados()
+        {
+            return this.yAjustado;
         }
         /// <summary>
         /// Método privado utilizado para calcular o somatorio de xi*yi
