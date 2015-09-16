@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RegrassaoLinear
 {
-    class EquacaoLinear
+    public class EquacaoLinear
     {
         private string equacao { get; set; }
         private double a1 { get; set; }

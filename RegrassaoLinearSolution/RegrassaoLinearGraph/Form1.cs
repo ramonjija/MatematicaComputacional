@@ -6,11 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using RegrassaoLinear;
 
 namespace RegrassaoLinearGraph
 {
+
     public partial class Form1 : Form
     {
+
+        EquacaoLinear equacaoLinear = new EquacaoLinear();
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +32,7 @@ namespace RegrassaoLinearGraph
             Label lblFunc = new Label();
             lblFunc = (Label)Controls.Find("LblFuncao", true).FirstOrDefault();
 
-            lblFunc.Text = RegrassaoLinear.Program.FuncRegressaoLinear(); ;
+            lblFunc.Text = equacaoLinear.CalcularRegressaoLinear().ObterEquacao();
         }
     }
 }
