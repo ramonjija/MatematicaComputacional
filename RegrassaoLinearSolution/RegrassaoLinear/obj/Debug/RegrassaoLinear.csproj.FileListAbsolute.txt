@@ -3,3 +3,5 @@ C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSol
 C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinear\obj\Debug\RegrassaoLinear.csprojResolveAssemblyReference.cache
 C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinear\obj\Debug\RegrassaoLinear.exe
 C:\Users\ramon.silva\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinear\obj\Debug\RegrassaoLinear.pdb
+C:\Users\Ramon\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinear\obj\Debug\RegrassaoLinear.exe
+C:\Users\Ramon\Documents\GitHub\MatematicaComputacional\RegrassaoLinearSolution\RegrassaoLinear\obj\Debug\RegrassaoLinear.pdb

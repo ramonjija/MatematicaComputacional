@@ -15,7 +15,7 @@ namespace RegrassaoLinear
         private double syx { get; set; }
         private double r2 { get; set; }
         private double[] yAjustado { get; set; }
-        private double sy { get; set; }
+        private double Syi { get; set; }
 
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace RegrassaoLinear
 
             double Sxiyi = 0;
             double Sxi = 0;
-            double Syi = 0;
+            Syi = 0;
             double Sxi2 = 0;
 
             double mediaXi = 0;
@@ -102,7 +102,7 @@ namespace RegrassaoLinear
 
             double Sxiyi = 0;
             double Sxi = 0;
-            double Syi = 0;
+            Syi = 0;
             double Sxi2 = 0;
 
             double mediaXi = 0;
@@ -249,7 +249,7 @@ namespace RegrassaoLinear
         /// <returns>double object.ObterSomatorioY()</returns>
         public double ObterSomatorioY()
         {
-            return this.sy;
+            return this.Syi;
         }
         /// <summary>
         /// Método responsável por obter os valores ajustados de Y
