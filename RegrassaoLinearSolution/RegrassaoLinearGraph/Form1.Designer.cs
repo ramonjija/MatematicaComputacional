@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.LblFuncao = new System.Windows.Forms.Label();
@@ -58,20 +58,25 @@
             // 
             // chart1
             // 
-            chartArea3.Name = "GraficoEquacaoLinear";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            this.chart1.BorderlineColor = System.Drawing.Color.Black;
+            this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            this.chart1.BorderSkin.BackColor = System.Drawing.Color.Transparent;
+            this.chart1.BorderSkin.BackSecondaryColor = System.Drawing.Color.White;
+            this.chart1.BorderSkin.PageColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "GraficoEquacaoLinear";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(12, 68);
             this.chart1.Name = "chart1";
-            series5.ChartArea = "GraficoEquacaoLinear";
-            series5.Legend = "Legend1";
-            series5.Name = "Dispercao";
-            series6.ChartArea = "GraficoEquacaoLinear";
-            series6.Legend = "Legend1";
-            series6.Name = "EquacaoLinear";
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
+            series1.ChartArea = "GraficoEquacaoLinear";
+            series1.Legend = "Legend1";
+            series1.Name = "Dispercao";
+            series2.ChartArea = "GraficoEquacaoLinear";
+            series2.Legend = "Legend1";
+            series2.Name = "EquacaoLinear";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(428, 217);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";

@@ -35,6 +35,7 @@ namespace RegrassaoLinearGraph
             chart1.Series["Dispercao"].Color = Color.DarkRed;
             chart1.Series["EquacaoLinear"].ChartType = SeriesChartType.FastLine;
             chart1.Series["EquacaoLinear"].Color = Color.Black;
+
         }
 
         private void Obter_Reta(object sender, EventArgs e)
@@ -130,27 +131,44 @@ namespace RegrassaoLinearGraph
         {
             string resultado = null;
 
-            if(valorR <= 0.5)
+            if (valorR <= 0.5)
             {
                 resultado = "Impróprio";
-            }else if(valorR <= 0.6)
+            }
+            else if (valorR <= 0.6)
             {
                 resultado = "Péssimo";
-            }else if(valorR <= 0.7)
+            }
+            else if (valorR <= 0.7)
             {
                 resultado = "Medíocre";
-            }else if(valorR <= 0.8)
+            }
+            else if (valorR <= 0.8)
             {
                 resultado = "Razoável";
-            }else if(valorR <= 0.9)
+            }
+            else if (valorR <= 0.9)
             {
                 resultado = "Bom";
-            }else if(valorR <= 1)
+            }
+            else if (valorR <= 1)
             {
                 resultado = "Ótimo";
             }
 
             return resultado;
+        }
+
+        private bool VerificaSeENumero(TextBox numeroDigitado)
+        {
+            bool numero = true;
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(numeroDigitado.Text, "^[ a-zA-Z á-ùÁ-Ù â-ûÂ-Û]*$"))
+            {
+                numero = false;
+            }
+
+            return numero;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -163,38 +181,39 @@ namespace RegrassaoLinearGraph
 
             if (txtBoxXi.Text != "" && txtBoxYi.Text != "")
             {
-                listaX.Add(Convert.ToDouble(txtBoxXi.Text));
-                listaY.Add(Convert.ToDouble(txtBoxYi.Text));
-                itm = new ListViewItem(new[] { txtBoxXi.Text, txtBoxYi.Text });
-                listView2.Items.Add(itm);
+                if (VerificaSeENumero(txtBoxXi) && VerificaSeENumero(txtBoxYi))
+                {
+                    listaX.Add(Convert.ToDouble(txtBoxXi.Text));
+                    listaY.Add(Convert.ToDouble(txtBoxYi.Text));
+                    itm = new ListViewItem(new[] { txtBoxXi.Text, txtBoxYi.Text });
+                    listView2.Items.Add(itm);
 
-                listView2.GridLines = true;
-                listView2.View = View.Details;
-                listView2.FullRowSelect = true;
-                listView2.Update();
+                    listView2.GridLines = true;
+                    listView2.View = View.Details;
+                    listView2.FullRowSelect = true;
+                    listView2.Update();
+                }
                 txtBoxXi.Clear();
                 txtBoxYi.Clear();
-
             }
-
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-             int i = 0, j = 0;
-             valorx = new double[listaX.Count];
-             valory = new double[listaY.Count];
-             foreach(double valorxi in listaX)
-             {
-                 valorx[i] = valorxi;
-                 i++;
-             }
+            int i = 0, j = 0;
+            valorx = new double[listaX.Count];
+            valory = new double[listaY.Count];
+            foreach (double valorxi in listaX)
+            {
+                valorx[i] = valorxi;
+                i++;
+            }
             //listaX.Clear();
-             foreach(double valoryi in listaY)
-             {
-                 valory[j] = valoryi;
-                 j++;
-             }
+            foreach (double valoryi in listaY)
+            {
+                valory[j] = valoryi;
+                j++;
+            }
             //listaY.Clear();
             if (listView2.Items.Count > 0)
             {
