@@ -10,7 +10,8 @@ namespace RegraDoTrapezio
         double solucao = 0;
         ExemploFuncoes funcao1;
         double soma = 0;
-
+        
+        //Exemplo Livro
         public double CalculaRegra(double xi, double xe, double n)
         {
             double h = CalculaH(xe, xi, n);
@@ -29,13 +30,15 @@ namespace RegraDoTrapezio
             return Math.Round(solucao,4);
         }
 
+        //Exercicio Livro
         public double CalculaRegra2(double xi, double xe, double n)
         {
             double h = CalculaH(xe, xi, n);
 
             Console.WriteLine("h = " + h + " | " + " n = " + n);
             funcao1 = new ExemploFuncoes();
-
+            
+            //Funcao Paraquedista
             soma = funcao1.FuncaoExemplo2B(xi);
 
             for (int i = 1; i < n; i++)
@@ -76,6 +79,7 @@ namespace RegraDoTrapezio
             return (xe - xi) / n;
         }
 
+        //Exemplo Livro
         public void CalculaRegraN(double xe, double xi, int nInicial, int nFinal)
         {
             Console.WriteLine("Regra do Trapézio: ");
