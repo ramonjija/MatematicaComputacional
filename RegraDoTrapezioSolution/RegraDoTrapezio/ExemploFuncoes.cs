@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RegraDoTrapezio
 {
-    class ExemploFuncoes
+   public class ExemploFuncoes
     {
 
         public double FuncaoExemplo1(double x)

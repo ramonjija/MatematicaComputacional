@@ -5,11 +5,16 @@ using System.Text;
 
 namespace RegraDoTrapezio
 {
-    class RegraDoTrapezio
+   public class RegraDoTrapezio
     {
         double solucao = 0;
         ExemploFuncoes funcao1;
         double soma = 0;
+
+        public double CalculaRegraSimples(double h, double f0, double f1)
+        {
+            return h * (f0 + f1) / 2;
+        }
         
         //Exemplo Livro
         public double CalculaRegra(double xi, double xe, double n)
