@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 
 namespace RegraDoTrapezio
 {
    public class RegraDoTrapezio
     {
+        public TimeSpan tempoTrapezio { get; set; }
+
         double solucao = 0;
         ExemploFuncoes funcao1;
         double soma = 0;
@@ -17,18 +20,18 @@ namespace RegraDoTrapezio
         }
         
         //Exemplo Livro
-        public double CalculaRegra(double xi, double xe, double n)
+        public double CalculaRegraExemplo(double xi, double xe, double n)
         {
             double h = CalculaH(xe, xi, n);
             funcao1 = new ExemploFuncoes();
 
-            soma = funcao1.FuncaoExemplo1(xi);
+            soma = funcao1.FuncaoExemplo(xi);
 
             for(int i = 1; i < n; i++)
             {
-                soma += 2 * funcao1.FuncaoExemplo1(xi + h * i);
+                soma += 2 * funcao1.FuncaoExemplo(xi + h * i);
             }
-            soma += funcao1.FuncaoExemplo1(xe);
+            soma += funcao1.FuncaoExemplo(xe);
 
             solucao = h * soma / 2;
 
@@ -36,49 +39,34 @@ namespace RegraDoTrapezio
         }
 
         //Exercicio Livro
-        public double CalculaRegra2(double xi, double xe, double n)
+        public double CalculaRegraExercicio(double xi, double xe, double n)
         {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
             double h = CalculaH(xe, xi, n);
 
             Console.WriteLine("h = " + h + " | " + " n = " + n);
             funcao1 = new ExemploFuncoes();
             
             //Funcao Paraquedista
-            soma = funcao1.FuncaoExemplo2B(xi);
+            soma = funcao1.FuncaoExercicio(xi);
 
             for (int i = 1; i < n; i++)
             {
-                soma += 2 * funcao1.FuncaoExemplo2B(xi + h * i);
+                soma += 2 * funcao1.FuncaoExercicio(xi + h * i);
             }
-            soma += funcao1.FuncaoExemplo2B(xe);
+            soma += funcao1.FuncaoExercicio(xe);
 
             solucao = h * soma / 2;
+
+            sw.Stop();
+
+            tempoTrapezio = sw.Elapsed;
 
             return Math.Round(solucao, 5);
         }
-        /*
-        public double CalculaRegra2(double xi, double xe, double n, double h)
-        {
-            //((g*m)/c)*(1 - e^(-(c/m)*t));
-            /*double g = 9.8;//m/s² aceleracao da gravidade
-            double m = 68.1;//kg massa do paraquedista
-            double c = 12.5;//kg/s coeficiente de arrasto
-           
-            funcao1 = new ExemploFuncoes();
-
-            soma = funcao1.FuncaoExemplo2(xi);
-
-            for (int i = 1; i < n; i++)
-            {
-                soma += 2 * funcao1.FuncaoExemplo2(xi + h * i);
-            }
-            soma += funcao1.FuncaoExemplo2(xe);
-
-            solucao = h * soma / 2;
-
-            return Math.Round(solucao, 4);
-        }
-         */
+       
         private double CalculaH(double xe, double xi, double n)
         {
             return (xe - xi) / n;
@@ -92,7 +80,7 @@ namespace RegraDoTrapezio
             for(int i = nInicial; i <= nFinal; i++)
             {
                 Console.Write("n = " + i + " ");
-                Console.WriteLine(" | "+ "I = " +CalculaRegra(xe, xi, i));
+                Console.WriteLine(" | "+ "I = " +CalculaRegraExemplo(xe, xi, i));
 
             }
         }

@@ -2,40 +2,42 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 
 namespace RegraDoTrapezio
 {
     class Program
     {
-        static void Main(string[] args)
+        const string equacaoExemplo = "f(x) = 0,2 + 25x − 200x2 + 675x3 − 900x4 + 400x5";
+        const string equacaoExercicio = "v(t) = ((g*m)/c)*(1 - e^(-(c/m)*t));"; 
+
+        private void ExecucaoExercicioTrapezio()
         {
             RegraDoTrapezio aplicacaoDaRegra = new RegraDoTrapezio();
-            //Console.WriteLine(regra1.CalculaRegra(0, 0.8, 2));
-            //Console.WriteLine();
-            //regra1.CalculaRegraN(0, 0.8, 2, 10);
+            int[] segmentos = { 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000 };
             Console.WriteLine("Utilização da Regra do Trapezio para calcular o deslocamento do paraquedista: ");
             Console.WriteLine();
-            Console.WriteLine("I = " + aplicacaoDaRegra.CalculaRegra2(0, 10, 10));
+            Console.WriteLine(equacaoExercicio);
             Console.WriteLine();
-            Console.WriteLine("I = " + aplicacaoDaRegra.CalculaRegra2(0, 10, 20));
+            Stopwatch sw = new Stopwatch();
+            TimeSpan tempo = TimeSpan.Zero;
+            sw.Start();
+            for (int i = 0; i < segmentos.Length; i++)
+            {
+                Console.WriteLine("I = " + aplicacaoDaRegra.CalculaRegraExercicio(0, 10, segmentos[i]));
+                //Console.WriteLine("O sitema levou " + aplicacaoDaRegra.tempoTrapezio + " para ser resolvido");
+            }
+            sw.Stop();
+            tempo = sw.Elapsed;
             Console.WriteLine();
-            Console.WriteLine("I = " + aplicacaoDaRegra.CalculaRegra2(0, 10, 50));
-            Console.WriteLine();
-            Console.WriteLine("I = " + aplicacaoDaRegra.CalculaRegra2(0, 10, 100));
-            Console.WriteLine();
-            Console.WriteLine("I = " + aplicacaoDaRegra.CalculaRegra2(0, 10, 200));
-            Console.WriteLine();
-            Console.WriteLine("I = " + aplicacaoDaRegra.CalculaRegra2(0, 10, 500));
-            Console.WriteLine();
-            Console.WriteLine("I = " + aplicacaoDaRegra.CalculaRegra2(0, 10, 1000));
-            Console.WriteLine();
-            Console.WriteLine("I = " + aplicacaoDaRegra.CalculaRegra2(0, 10, 2000));
-            Console.WriteLine();
-            Console.WriteLine("I = " + aplicacaoDaRegra.CalculaRegra2(0, 10, 5000));
-            Console.WriteLine();
-            Console.WriteLine("I = " + aplicacaoDaRegra.CalculaRegra2(0, 10, 10000));
+            Console.WriteLine("O sistema levou " + tempo + " com a regra do trapezio para ser resolvido");
+            Console.WriteLine("");
+        }
 
-            //Console.WriteLine(regra1.CalculaRegra2(0,10,10,1));
+        static void Main(string[] args)
+        {
+            Program RegraDoTrapezio = new Program();
+            RegraDoTrapezio.ExecucaoExercicioTrapezio();
             Console.ReadLine();
 
         }
