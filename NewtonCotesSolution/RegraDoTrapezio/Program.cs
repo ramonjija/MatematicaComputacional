@@ -39,8 +39,8 @@ namespace RegraDoTrapezio
             Program RegraDoTrapezio = new Program();
             RegraDoTrapezio.ExecucaoExercicioTrapezio();
 
-            RegraDoTrapezio regra = new RegraDoTrapezio();
-            Console.WriteLine(regra.CalculaRegraEq(4, 0, 0.8));
+            /*RegraDoTrapezio regra = new RegraDoTrapezio();
+            Console.WriteLine(regra.CalculaRegraEq(4, 0, 0.8));*/
 
             Console.ReadLine();
 
