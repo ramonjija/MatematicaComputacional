@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
+using Funcoes;
 
 namespace RegrasDeSimpson
 {
     public class FuncoesSimpson
     {
-        RegraDoTrapezio.ExemploFuncoes funcaoUtilizada;
+        //RegraDoTrapezio.ExemploFuncoes funcaoUtilizada;
+        ExemploFuncoes funcaoUtilizada;
         RegraDoTrapezio.RegraDoTrapezio trap;
 
         public TimeSpan tempoSimp13 { get; set; }
@@ -28,7 +30,7 @@ namespace RegrasDeSimpson
             Stopwatch sw = new Stopwatch();
             sw.Start();
             double solucao = 0;
-            funcaoUtilizada = new RegraDoTrapezio.ExemploFuncoes();
+            funcaoUtilizada = new ExemploFuncoes();
             double h = CalculaH(b, a, 2);
             double[] xValue = new double[3];
             xValue[0] = 0;
@@ -78,7 +80,7 @@ namespace RegrasDeSimpson
             Stopwatch sw = new Stopwatch();
             sw.Start();
             double solucao = 0;
-            funcaoUtilizada = new RegraDoTrapezio.ExemploFuncoes();
+            funcaoUtilizada = new ExemploFuncoes();
             double h = CalculaH(b, a, 3);
             double[] xValue = new double[4];
             xValue[0] = 0;
@@ -131,7 +133,7 @@ namespace RegrasDeSimpson
             double soma = 0, solucao = 0;
             double[] xValues = new double[n + 1];
             double h = CalculaH(b, a, n);
-            funcaoUtilizada = new RegraDoTrapezio.ExemploFuncoes();
+            funcaoUtilizada = new ExemploFuncoes();
 
             xValues[0] = 0;
             for (int i = 1; i < xValues.Length; i++)
@@ -139,7 +141,7 @@ namespace RegrasDeSimpson
                 xValues[i] = Math.Round(h * i, 2);
             }
 
-            funcaoUtilizada = new RegraDoTrapezio.ExemploFuncoes();
+            funcaoUtilizada = new ExemploFuncoes();
 
             //adicao de selecao de exemplo ou exercicio
             if (exercicio)
@@ -188,7 +190,7 @@ namespace RegrasDeSimpson
         {
             double soma = 0, solucao = 0;
             double[] xValues = new double[n+1];
-            funcaoUtilizada = new RegraDoTrapezio.ExemploFuncoes();
+            funcaoUtilizada = new ExemploFuncoes();
 
             xValues[0] = 0;
             for(int i = 1; i < xValues.Length; i++)
@@ -196,7 +198,7 @@ namespace RegrasDeSimpson
                 xValues[i] = Math.Round(h * i, 2);
             }
 
-            funcaoUtilizada = new RegraDoTrapezio.ExemploFuncoes();
+            funcaoUtilizada = new ExemploFuncoes();
 
             //adicao de selecao de exemplo ou exercicio
             if (exercicio)
@@ -250,7 +252,7 @@ namespace RegrasDeSimpson
             int impar = 0, m = 0;
 
             trap = new RegraDoTrapezio.RegraDoTrapezio();
-            funcaoUtilizada = new RegraDoTrapezio.ExemploFuncoes();
+            funcaoUtilizada = new ExemploFuncoes();
 
             h = (b - a) / n;
             xValues[0] = 0;
@@ -308,6 +310,36 @@ namespace RegrasDeSimpson
             tempoSimpInt = sw.Elapsed;
             return solucao;
 
+        }
+        /// <summary>
+        /// Funcao utilizada para se calcula a regra de 1/3 quando a funcao esta disponivel. Utilizada em Romberg.
+        /// </summary>
+        /// <param name="n">numero de segmentos</param>
+        /// <param name="a">limite inical</param>
+        /// <param name="b">limite final</param>
+        /// <returns>doulbe funcao 1/3 para equacao</returns>
+        public double CalculaSimpEq(int n, double a, double b)
+        {
+            funcaoUtilizada = new ExemploFuncoes();
+            double solucao = 0;
+
+            double h = (b - a) / n;
+            double x = a;
+            double soma = funcaoUtilizada.FuncaoExemplo(x);
+            for (int i = 1; i < n - 2; i += 2)
+            {
+                x += h;
+                soma += 4 * funcaoUtilizada.FuncaoExemplo(x);
+                x += h;
+                soma += 2 * funcaoUtilizada.FuncaoExemplo(x);
+            }
+            x += h;
+            soma += 4 * funcaoUtilizada.FuncaoExemplo(x);
+            soma += funcaoUtilizada.FuncaoExemplo(b);
+            solucao = (b - a) * soma / (3 * n);
+
+
+            return solucao;
         }
         private double CalculaH(double xe, double xi, int n)
         {

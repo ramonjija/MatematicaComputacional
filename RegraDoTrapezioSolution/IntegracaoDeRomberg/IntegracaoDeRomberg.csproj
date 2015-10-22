@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B637F827-EED8-4A03-9210-8D3F47CFB90B}</ProjectGuid>
+    <ProjectGuid>{55BEB1D0-E4F8-4E7F-9F89-FB7DBFDCB4AD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RegrasDeSimpson</RootNamespace>
-    <AssemblyName>RegrasDeSimpson</AssemblyName>
+    <RootNamespace>IntegracaoDeRomberg</RootNamespace>
+    <AssemblyName>IntegracaoDeRomberg</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FuncoesSimpson.cs" />
+    <Compile Include="IntegracaoDeRomberg.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,6 +52,10 @@
     <ProjectReference Include="..\RegraDoTrapezio\RegraDoTrapezio.csproj">
       <Project>{21a022e7-6f43-43bd-9ca5-45768362c837}</Project>
       <Name>RegraDoTrapezio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RegrasDeSimpson\RegrasDeSimpson.csproj">
+      <Project>{b637f827-eed8-4a03-9210-8d3f47cfb90b}</Project>
+      <Name>RegrasDeSimpson</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

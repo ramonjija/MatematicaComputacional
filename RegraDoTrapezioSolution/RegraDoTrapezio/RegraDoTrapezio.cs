@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
+using Funcoes;
 
 namespace RegraDoTrapezio
 {
@@ -11,7 +12,8 @@ namespace RegraDoTrapezio
         public TimeSpan tempoTrapezio { get; set; }
 
         double solucao = 0;
-        ExemploFuncoes funcao1;
+        //ExemploFuncoes funcao1;
+        Funcoes.ExemploFuncoes funcao1;
         double soma = 0;
 
         public double CalculaRegraSimples(double h, double f0, double f1)
@@ -23,7 +25,8 @@ namespace RegraDoTrapezio
         public double CalculaRegraExemplo(double xi, double xe, double n)
         {
             double h = CalculaH(xe, xi, n);
-            funcao1 = new ExemploFuncoes();
+            //funcao1 = new ExemploFuncoes();
+            funcao1 = new Funcoes.ExemploFuncoes();
 
             soma = funcao1.FuncaoExemplo(xi);
 
@@ -47,8 +50,9 @@ namespace RegraDoTrapezio
             double h = CalculaH(xe, xi, n);
 
             Console.WriteLine("h = " + h + " | " + " n = " + n);
-            funcao1 = new ExemploFuncoes();
-            
+            //funcao1 = new ExemploFuncoes();
+            funcao1 = new Funcoes.ExemploFuncoes();
+
             //Funcao Paraquedista
             soma = funcao1.FuncaoExercicio(xi);
 
@@ -83,6 +87,33 @@ namespace RegraDoTrapezio
                 Console.WriteLine(" | "+ "I = " +CalculaRegraExemplo(xe, xi, i));
 
             }
+        }
+
+        /// <summary>
+        /// Funcao utilizada para calcular a regra do trapezio quando a equação esta disponivel. Utilizada em Romberg
+        /// </summary>
+        /// <param name="n">numero de segmentos</param>
+        /// <param name="a">limite inical</param>
+        /// <param name="b">limite final</param>
+        /// <returns>double funcao calculada</returns>
+        public double CalculaRegraEq(int n, double a, double b)
+        {
+            funcao1 = new ExemploFuncoes();
+            double solucao = 0;
+
+            double h = (b - a) / n;
+            double x = a;
+            double soma = funcao1.FuncaoExemplo(x);
+
+            for(int i = 1; i < n; i++)
+            {
+                x += h;
+                soma += 2 * funcao1.FuncaoExemplo(x);
+            }
+            soma += funcao1.FuncaoExemplo(b);
+            solucao = (b - a) * soma / (2 * n);
+
+            return solucao;
         }
 
     }

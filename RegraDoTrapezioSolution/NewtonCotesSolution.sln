@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegraDoTrapezio", "RegraDoT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegrasDeSimpson", "RegrasDeSimpson\RegrasDeSimpson.csproj", "{B637F827-EED8-4A03-9210-8D3F47CFB90B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegracaoDeRomberg", "IntegracaoDeRomberg\IntegracaoDeRomberg.csproj", "{55BEB1D0-E4F8-4E7F-9F89-FB7DBFDCB4AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funcoes", "ExemplosFuncoes\Funcoes.csproj", "{876D8AF3-2604-47CC-82C2-6E5EEB9498BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B637F827-EED8-4A03-9210-8D3F47CFB90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B637F827-EED8-4A03-9210-8D3F47CFB90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B637F827-EED8-4A03-9210-8D3F47CFB90B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55BEB1D0-E4F8-4E7F-9F89-FB7DBFDCB4AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55BEB1D0-E4F8-4E7F-9F89-FB7DBFDCB4AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55BEB1D0-E4F8-4E7F-9F89-FB7DBFDCB4AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55BEB1D0-E4F8-4E7F-9F89-FB7DBFDCB4AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{876D8AF3-2604-47CC-82C2-6E5EEB9498BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{876D8AF3-2604-47CC-82C2-6E5EEB9498BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{876D8AF3-2604-47CC-82C2-6E5EEB9498BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{876D8AF3-2604-47CC-82C2-6E5EEB9498BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

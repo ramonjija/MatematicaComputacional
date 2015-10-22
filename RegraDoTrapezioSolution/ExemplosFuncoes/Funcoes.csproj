@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B637F827-EED8-4A03-9210-8D3F47CFB90B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{876D8AF3-2604-47CC-82C2-6E5EEB9498BB}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RegrasDeSimpson</RootNamespace>
-    <AssemblyName>RegrasDeSimpson</AssemblyName>
+    <RootNamespace>ExemplosFuncoes</RootNamespace>
+    <AssemblyName>ExemplosFuncoes</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,19 +38,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FuncoesSimpson.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ExemploFuncoes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ExemplosFuncoes\Funcoes.csproj">
-      <Project>{876d8af3-2604-47cc-82c2-6e5eeb9498bb}</Project>
-      <Name>Funcoes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RegraDoTrapezio\RegraDoTrapezio.csproj">
-      <Project>{21a022e7-6f43-43bd-9ca5-45768362c837}</Project>
-      <Name>RegraDoTrapezio</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

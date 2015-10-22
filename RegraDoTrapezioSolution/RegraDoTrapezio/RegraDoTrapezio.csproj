@@ -40,10 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExemploFuncoes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegraDoTrapezio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExemplosFuncoes\Funcoes.csproj">
+      <Project>{876d8af3-2604-47cc-82c2-6e5eeb9498bb}</Project>
+      <Name>Funcoes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

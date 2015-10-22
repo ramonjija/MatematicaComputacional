@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using RegraDoTrapezio;
+using Funcoes;
 
 namespace RegrasDeSimpson
 {
@@ -14,7 +15,7 @@ namespace RegrasDeSimpson
         private void ExecucaoExemploSimpson()
         {
             FuncoesSimpson funcSimp = new FuncoesSimpson();
-            RegraDoTrapezio.ExemploFuncoes funcExemplos = new ExemploFuncoes();
+            ExemploFuncoes funcExemplos = new ExemploFuncoes();
             /*Variaveis para o exercicio*/
             double a = 0, b = 0.8;
             int n = 4, nParImpar = 5;
@@ -41,10 +42,11 @@ namespace RegrasDeSimpson
         private void ExecucaoExercicioSimpson()
         {
             FuncoesSimpson funcSimp = new FuncoesSimpson();
-            RegraDoTrapezio.ExemploFuncoes funcExemplos = new ExemploFuncoes();
+            ExemploFuncoes funcExemplos = new ExemploFuncoes();
             /*Variaveis para o exercicio*/
             double a = 0, b = 10;
             int n = 10;
+            int nEq = 256;
             bool exercicio = true;
 
             Console.WriteLine("Utilizacao das funcoes para o exercicio:");
@@ -67,6 +69,13 @@ namespace RegrasDeSimpson
 
             Console.WriteLine("Resultado Regra Multipla Par e Impar = " + Math.Round(funcSimp.CalculaSimpInt(a, b, n, exercicio), 6));// OK Exercicio
             Console.WriteLine("O sistema levou " + funcSimp.tempoSimpInt + " para ser resolvido");
+            Console.WriteLine();
+
+            //Exercicio Romberg
+            Console.WriteLine("Resultado Regra 1/3 quando a funcao e conhecida = " + Math.Round(funcSimp.CalculaSimpEq(nEq, 0, 0.8), 6));// OK Exercicio
+            Console.WriteLine("O utilizando " + nEq + " segmentos");
+            Console.WriteLine("O sistema levou " + funcSimp.tempoSimpInt + " para ser resolvido");
+
             Console.WriteLine();
             Console.ReadLine();
         }
