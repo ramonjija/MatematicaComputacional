@@ -38,7 +38,6 @@ namespace RegrasDeSimpson
             {
                 xValue[i] = h * i;
             }
-
             if (exercicio)
             {
                 solucao = 2 * h * (funcaoUtilizada.FuncaoExercicio(xValue[0]) + 4 * funcaoUtilizada.FuncaoExercicio(xValue[1]) + funcaoUtilizada.FuncaoExercicio(xValue[2])) / 6;
@@ -340,6 +339,48 @@ namespace RegrasDeSimpson
 
 
             return solucao;
+        }
+       /// <summary>
+       /// Funcao utilizada para calcular o exercicio 24.1 da página 566 Simpson
+       /// </summary>
+       /// <param name="ti">Temperatura Inicial</param>
+       /// <param name="tf">Temperatura Final</param>
+       /// <param name="inc">Incremento de temperatura</param>
+       /// <param name="g">gramas de materia a ser elevados</param>
+       /// <returns>double quantidade de calor Delta H</returns>
+        public double CalculaSimp13mAV1_24_1(double ti, double tf, double inc, double g)
+        {
+            double soma = 0, solucao = 0;
+            int n = 0;
+            double valorCalculado = ti;
+            double[] xValues = new double[10];
+
+            while (valorCalculado <= tf)
+            {
+                xValues[n] = valorCalculado;
+                valorCalculado += inc;
+                n++;
+            }
+            --n;
+
+            double h = CalculaH(tf, ti, n);
+
+            funcaoUtilizada = new ExemploFuncoes();
+            soma = funcaoUtilizada.FuncaoExercicioAv1_24_1(xValues[0], g);
+
+            for (int i = 1; i < n - 2; i += 2)
+            {
+                soma = soma + 4 * funcaoUtilizada.FuncaoExercicioAv1_24_1(xValues[i], g) + 2 * funcaoUtilizada.FuncaoExercicioAv1_24_1(xValues[i + 1], g);
+
+            }
+
+            soma = soma + 4 * funcaoUtilizada.FuncaoExercicioAv1_24_1(xValues[n - 1], g) + funcaoUtilizada.FuncaoExercicioAv1_24_1(xValues[n], g);
+
+            solucao = h * soma / 3;
+
+            return solucao;
+
+
         }
         private double CalculaH(double xe, double xi, int n)
         {

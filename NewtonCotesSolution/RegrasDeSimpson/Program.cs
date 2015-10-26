@@ -11,12 +11,12 @@ namespace RegrasDeSimpson
     {
         const string equacaoExemplo = "f(x) = 0,2 + 25x − 200x2 + 675x3 − 900x4 + 400x5";
         const string equacaoExercicio = "v(t) = ((g*m)/c)*(1 - e^(-(c/m)*t));";
+        const string equacaoExercicioAV1_24_1 = "deltaH = g * (0.132 + 1.56 *10^-4 * T + 2.64 * 10^-7 * T²);";
 
         private void ExecucaoExemploSimpson()
         {
             FuncoesSimpson funcSimp = new FuncoesSimpson();
             ExemploFuncoes funcExemplos = new ExemploFuncoes();
-            /*Variaveis para o exercicio*/
             double a = 0, b = 0.8;
             int n = 4, nParImpar = 5;
             bool exercicio = false;
@@ -38,12 +38,10 @@ namespace RegrasDeSimpson
             Console.WriteLine("Resultado Regra Multipla Par e Impar = " + Math.Round(funcSimp.CalculaSimpInt(a, b, nParImpar, exercicio), 6));// OK Exemplo
             Console.WriteLine();
         }
-
         private void ExecucaoExercicioSimpson()
         {
             FuncoesSimpson funcSimp = new FuncoesSimpson();
             ExemploFuncoes funcExemplos = new ExemploFuncoes();
-            /*Variaveis para o exercicio*/
             double a = 0, b = 10;
             int n = 10;
             int nEq = 256;
@@ -77,7 +75,24 @@ namespace RegrasDeSimpson
             Console.WriteLine("O sistema levou " + funcSimp.tempoSimpInt + " para ser resolvido");
 
             Console.WriteLine();
-            Console.ReadLine();
+        }
+        private void ExecucaoExercicioAV1_24_1()
+        {
+            FuncoesSimpson funcAv1 = new FuncoesSimpson();
+            double g = 1200;
+            double ti = -150, tf = 100, inc = 50;
+
+            Console.WriteLine("Utilização da funcao do exercicio 24.1:");
+            Console.WriteLine();
+            Console.WriteLine(equacaoExercicioAV1_24_1);
+            Console.WriteLine();
+            Console.WriteLine("Resultado da utilizacao de simpson 1/3 com: ");
+            Console.WriteLine("Gramas: " + g + " g");
+            Console.WriteLine("Temperatura inicial: " + ti + " °C");
+            Console.WriteLine("Temperatura final: " + tf + " °C");
+            Console.WriteLine("Incremento: " + inc + " °C");
+            Console.WriteLine();
+            Console.WriteLine("Quantidade de calor " + funcAv1.CalculaSimp13mAV1_24_1(ti, tf, inc, g)+" cal");
         }
 
         static void Main(string[] args)
@@ -87,6 +102,7 @@ namespace RegrasDeSimpson
 
             regrasDeSimpson.ExecucaoExemploSimpson();
             regrasDeSimpson.ExecucaoExercicioSimpson();
+            regrasDeSimpson.ExecucaoExercicioAV1_24_1();
 
             Console.ReadKey();
 

@@ -7,7 +7,7 @@ using Funcoes;
 
 namespace RegraDoTrapezio
 {
-   public class RegraDoTrapezio
+    public class RegraDoTrapezio
     {
         public TimeSpan tempoTrapezio { get; set; }
 
@@ -20,7 +20,7 @@ namespace RegraDoTrapezio
         {
             return h * (f0 + f1) / 2;
         }
-        
+
         //Exemplo Livro
         public double CalculaRegraExemplo(double xi, double xe, double n)
         {
@@ -30,7 +30,7 @@ namespace RegraDoTrapezio
 
             soma = funcao1.FuncaoExemplo(xi);
 
-            for(int i = 1; i < n; i++)
+            for (int i = 1; i < n; i++)
             {
                 soma += 2 * funcao1.FuncaoExemplo(xi + h * i);
             }
@@ -38,7 +38,7 @@ namespace RegraDoTrapezio
 
             solucao = h * soma / 2;
 
-            return Math.Round(solucao,4);
+            return Math.Round(solucao, 4);
         }
 
         //Exercicio Livro
@@ -70,7 +70,7 @@ namespace RegraDoTrapezio
 
             return Math.Round(solucao, 5);
         }
-       
+
         private double CalculaH(double xe, double xi, double n)
         {
             return (xe - xi) / n;
@@ -81,10 +81,10 @@ namespace RegraDoTrapezio
         {
             Console.WriteLine("Regra do Trapézio: ");
             Console.WriteLine();
-            for(int i = nInicial; i <= nFinal; i++)
+            for (int i = nInicial; i <= nFinal; i++)
             {
                 Console.Write("n = " + i + " ");
-                Console.WriteLine(" | "+ "I = " +CalculaRegraExemplo(xe, xi, i));
+                Console.WriteLine(" | " + "I = " + CalculaRegraExemplo(xe, xi, i));
 
             }
         }
@@ -105,7 +105,7 @@ namespace RegraDoTrapezio
             double x = a;
             double soma = funcao1.FuncaoExemplo(x);
 
-            for(int i = 1; i < n; i++)
+            for (int i = 1; i < n; i++)
             {
                 x += h;
                 soma += 2 * funcao1.FuncaoExemplo(x);
@@ -114,6 +114,31 @@ namespace RegraDoTrapezio
             solucao = (b - a) * soma / (2 * n);
 
             return solucao;
+        }
+        /// <summary>
+        /// Funcao utilizada para calcular o Exercicio 24.1 do Livro necessario para a AV1
+        /// </summary>
+        /// <param name="ti">Valor inicial da temperatura</param>
+        /// <param name="te">Valor final da temperatura</param>
+        /// <param name="n">numero de segmentos(calculado pela h dado pelo livro)</param>
+        /// <returns>double regra do trapezio</returns>
+        public double CalculaExercicioAV1_24_1(double ti, double te, double n)
+        {
+            double h = CalculaH(te, ti, n);
+            //funcao1 = new ExemploFuncoes();
+            funcao1 = new Funcoes.ExemploFuncoes();
+
+            soma = funcao1.FuncaoExercicioAv1_24_1(ti);
+
+            for (int i = 1; i < n; i++)
+            {
+                soma += 2 * funcao1.FuncaoExercicioAv1_24_1(ti + h * i);
+            }
+            soma += funcao1.FuncaoExercicioAv1_24_1(te);
+
+            solucao = h * soma / 2;
+
+            return Math.Round(solucao, 4);
         }
 
     }

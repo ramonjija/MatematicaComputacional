@@ -21,5 +21,26 @@ namespace Funcoes
 
             return ((g * m) / c) * (1 - Math.Exp(-(c / m) * t));
         }
+        /// <summary>
+        /// Funcao utilizada no exercicio AV1 pagina 566 exercicio 24.1
+        /// </summary>
+        /// <param name="T">Temperatura</param>
+        /// <returns>double capacidade calorifica</returns>
+        public double FuncaoExercicioAv1_24_1(double T)
+        {
+            double g = 1000;
+            return g * (0.132 + 1.56 * Math.Pow(10, -4) * T + 2.64 * Math.Pow(10, -7) * T * T);
+        }
+        /// <summary>
+        /// Sobrecarga da funcao utilizada no exercicio AV1 pagina 566 exercicio 24.1
+        /// </summary>
+        /// <param name="T">Temperatura</param>
+        /// <param name="g">Quantidade de gramas do material a ser elevado</param>
+        /// <returns>double capacidade calorifica</returns>
+        public double FuncaoExercicioAv1_24_1(double T,double g)
+        {
+            return g * (0.132 + 1.56 * Math.Pow(10, -4) * T + 2.64 * Math.Pow(10, -7) * T * T);
+
+        }
     }
 }
