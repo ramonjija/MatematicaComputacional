@@ -70,6 +70,7 @@ namespace RegrasDeSimpson
             Console.WriteLine();
 
             //Exercicio Romberg
+            Console.WriteLine("Aplicação no exemplo 21.1 como solicitado na aula 3");
             Console.WriteLine("Resultado Regra 1/3 quando a funcao e conhecida = " + Math.Round(funcSimp.CalculaSimpEq(nEq, 0, 0.8), 6));// OK Exercicio
             Console.WriteLine("O utilizando " + nEq + " segmentos");
             Console.WriteLine("O sistema levou " + funcSimp.tempoSimpInt + " para ser resolvido");
