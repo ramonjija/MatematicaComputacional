@@ -25,13 +25,13 @@ namespace RegrasDeSimpson
         /// <param name="b">limite superior</param>
         /// <param name="exercicio">seleção de funcao de exemplo ou exercicio</param>
         /// <returns>double</returns>
-        public double CalculaSimp13(double a, double b, bool exercicio)
+        public double CalculaSimp13(double a, double b, bool exercicio, int nvezes)
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
             double solucao = 0;
             funcaoUtilizada = new ExemploFuncoes();
-            double h = CalculaH(b, a, 2);
+            double h = CalculaH(b, a, nvezes);
             double[] xValue = new double[3];
             xValue[0] = 0;
             for(int i = 1; i < xValue.Length; i++)
@@ -44,7 +44,10 @@ namespace RegrasDeSimpson
             }
             else
             {
-                solucao = 2 * h * (funcaoUtilizada.FuncaoExemplo(xValue[0]) + 4 * funcaoUtilizada.FuncaoExemplo(xValue[1]) + funcaoUtilizada.FuncaoExemplo(xValue[2])) / 6;
+                for (int i = 0; i < nvezes; i++)
+                {
+                    solucao += 2 * h * (funcaoUtilizada.FuncaoExemplo(xValue[0]) + 4 * funcaoUtilizada.FuncaoExemplo(xValue[1]) + funcaoUtilizada.FuncaoExemplo(xValue[2])) / 6;
+                }
             }
             sw.Stop();
             tempoSimp13 = sw.Elapsed;

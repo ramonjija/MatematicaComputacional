@@ -9,8 +9,8 @@ namespace RegraDoTrapezio
     class Program
     {
         const string equacaoExemplo = "f(x) = 0,2 + 25x − 200x2 + 675x3 − 900x4 + 400x5";
-        const string equacaoExercicio = "v(t) = ((g*m)/c)*(1 - e^(-(c/m)*t));";
-        const string equacaoExercicioAV1_24_1 = "deltaH = g * (0.132 + 1.56 *10^-4 * T + 2.64 * 10^-7 * T²);";
+        const string equacaoExercicio = "v(t) = ((g*m)/c)*(1 - e^(-(c/m)*t))";
+        const string equacaoExercicioAV1_24_1 = "deltaH = g * (0.132 + 1.56 *10^-4 * T + 2.64 * 10^-7 * T²)";
 
         private void ExecucaoExercicioTrapezio()
         {
@@ -58,7 +58,9 @@ namespace RegraDoTrapezio
         static void Main(string[] args)
         {
             Program RegraDoTrapezio = new Program();
-            RegraDoTrapezio.ExecucaoExercicioTrapezio();
+           // RegraDoTrapezio.ExecucaoExercicioTrapezio();
+            RegraDoTrapezio regra = new RegraDoTrapezio();
+            Console.WriteLine(regra.CalculaRegraExemplo(0, 0.8, 100));
             //Não é necessário, utilizado para entender o problema 24.1
             //RegraDoTrapezio.ExecucaoExemploAV1_24_1();
             

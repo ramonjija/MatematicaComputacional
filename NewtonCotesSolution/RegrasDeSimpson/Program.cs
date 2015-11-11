@@ -26,7 +26,7 @@ namespace RegrasDeSimpson
             Console.WriteLine(equacaoExemplo);
             Console.WriteLine();
 
-            Console.WriteLine("Resultado 1/3 = " + Math.Round(funcSimp.CalculaSimp13(a, b, exercicio), 6)); //OK Exemplo
+            Console.WriteLine("Resultado 1/3 = " + Math.Round(funcSimp.CalculaSimp13(a, b, exercicio, 12), 6)); //OK Exemplo
             Console.WriteLine();
 
             Console.WriteLine("Resultado 1/3 Multiplo = " + Math.Round(funcSimp.CalculaSimp13m(a, b, n, exercicio), 6));// OK Exemplo
@@ -52,7 +52,7 @@ namespace RegrasDeSimpson
             Console.WriteLine(equacaoExercicio);
             Console.WriteLine();
 
-            Console.WriteLine("Resultado 1/3 = " + Math.Round(funcSimp.CalculaSimp13(a, b, exercicio), 6)); //OK Exercicio
+            Console.WriteLine("Resultado 1/3 = " + Math.Round(funcSimp.CalculaSimp13(a, b, exercicio, 100), 6)); //OK Exercicio
             Console.WriteLine("O sistema levou " + funcSimp.tempoSimp13 + " para ser resolvido");
             Console.WriteLine();
 
@@ -102,8 +102,8 @@ namespace RegrasDeSimpson
             Program regrasDeSimpson = new Program();
 
             regrasDeSimpson.ExecucaoExemploSimpson();
-            regrasDeSimpson.ExecucaoExercicioSimpson();
-            regrasDeSimpson.ExecucaoExercicioAV1_24_1();
+            //regrasDeSimpson.ExecucaoExercicioSimpson();
+            //regrasDeSimpson.ExecucaoExercicioAV1_24_1();
 
             Console.ReadKey();
 
