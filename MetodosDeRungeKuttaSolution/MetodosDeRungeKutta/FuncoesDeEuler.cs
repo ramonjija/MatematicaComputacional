@@ -198,7 +198,7 @@ namespace MetodosDeRungeKutta
                     xend = xf;
                 }
                 h = dx;
-                Integrador(ref x, ref y, h, xend, ref yp, ref xp, m);
+                Integrador(ref x, y, h, xend, ref yp, ref xp, m);
                 //m = m + 1;
                 //adiciona x e y no vetor
                 if (x >= xf)
@@ -219,11 +219,12 @@ namespace MetodosDeRungeKutta
             }
         }
 
-        private void Integrador(ref double x, ref double y, double h, double xend, ref double[] yp, ref double[] xp, int m)
+        private void Integrador(ref double x, double y, double h, double xend, ref double[] yp, ref double[] xp, int m)
         {
-            ++m;
+           
             while (true)
             {
+                m = m + 1;
                 if (xend - x < h)
                 {
                     h = xend - x;
@@ -237,7 +238,7 @@ namespace MetodosDeRungeKutta
                 {
                     break;
                 }
-                m = m + 1;
+                //m = m + 1;
             }
         }
 

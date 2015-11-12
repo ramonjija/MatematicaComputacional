@@ -43,7 +43,7 @@ namespace MetodosDeRungeKutta
             euler.executaEuler();
             */
             FuncoesDeEuler eulerTeste = new FuncoesDeEuler();
-            eulerTeste.EulerModularMelhorada2(1, 0, 4, 0.5, 8);
+            eulerTeste.EulerModularMelhorada2(1, 0, 20, 0.5, 20);
             Console.ReadLine();
 
         }
