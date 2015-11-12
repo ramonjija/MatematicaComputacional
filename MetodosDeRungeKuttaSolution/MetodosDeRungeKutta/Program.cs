@@ -7,19 +7,34 @@ namespace MetodosDeRungeKutta
 {
     class Program
     {
-        static void Main(string[] args)
+        private void executaEuler()
         {
-
             FuncoesDeEuler funcExemplo1 = new FuncoesDeEuler();
-            //funcExemplo1.EulerSimples(0, 4, 0.5);
-            //funcExemplo1.EulerSimples();
-            //Console.ReadLine();
+            funcExemplo1.EulerSimples(0, 4, 0.5);
+            funcExemplo1.EulerSimples();
 
-            funcExemplo1.EulerModularMelhorada(1, 0, 4, 0.5, 10);
+            Console.WriteLine("Execucao da funcao modular melhorada de euler");
+            List<Dictionary<double, double>> respostasxy = funcExemplo1.EulerModularMelhorada(1, 0, 4, 0.5, 10);
 
-           
+            foreach (Dictionary<double, double> valorDic in respostasxy)
+            {
+                foreach (var key in valorDic.Keys)
+                {
+                    Console.WriteLine("x: " + key);
+                    Console.WriteLine("y: " + valorDic[key]);
+                    Console.WriteLine();
+                }
+            }
+
             Console.ReadLine();
 
+        }
+
+        static void Main(string[] args)
+        {
+            Program euler = new Program();
+            euler.executaEuler();
+            
         }
     }
 }

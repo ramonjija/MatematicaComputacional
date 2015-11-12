@@ -14,8 +14,6 @@ namespace MetodosDeRungeKutta
         //public double x { get; private set; }
         //public double y { get; private set; }
 
-
-
         /// <summary>
         /// Implementacao da funcao de euler simples
         /// </summary>
@@ -95,17 +93,25 @@ namespace MetodosDeRungeKutta
         }
 
 
-        public void EulerModularMelhorada(double y, double xi, double xf, double dx, double xout)
+        public List<Dictionary<double,double>> EulerModularMelhorada(double y, double xi, double xf, double dx, double xout)
         {
+            List<Dictionary<double, double>> listaRespostasXY = new List<Dictionary<double, double>>();
+            Dictionary<double, double> respostasXY = new Dictionary<double, double>();
+
             double x, xend, h;
             int m;
-            xp = new double[20];
-            yp = new double[20];
+            //xp = new double[20];
+            //yp = new double[20];
 
             x = xi;
             m = 0;
-            yp[m] = x;
-            yp[m] = y;
+            //yp[m] = x;
+            //yp[m] = y;
+
+            //respostasXY[m] = new Dictionary<double, double>();
+            respostasXY.Add(x, y);
+            //respostasXY[m].Add(x, y);
+
 
             while (true)
             {
@@ -115,19 +121,21 @@ namespace MetodosDeRungeKutta
                     xend = xf;
                 }
                 h = dx;
-                Integrador(ref x, ref y, h, xend);
+                Integrador(ref x, ref y, h, xend, ref respostasXY);
+                listaRespostasXY.Add(respostasXY);
                 m += 1;
                 // Valores do vetor
-
                 if (x >= xf)
                 {
                     break;
                 }
-            }
+                //respostasXY[m] = new Dictionary<double, double>();
+            }   
+            return listaRespostasXY;
 
         }
 
-        private void Integrador(ref double x, ref double y, double h, double xend)
+        private void Integrador(ref double x, ref double y, double h, double xend, ref Dictionary<double,double> respostaXY)
         {
             while (true)
             {
@@ -137,7 +145,8 @@ namespace MetodosDeRungeKutta
                 }
                 //Euler(x, y, h, ynew);
                 y = Euler(ref x, y, h);
-
+                respostaXY.Add(x, y);
+                
                 if (x >= xend)
                 {
                     break;
