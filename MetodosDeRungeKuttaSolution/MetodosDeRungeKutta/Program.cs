@@ -7,16 +7,9 @@ namespace MetodosDeRungeKutta
 {
     class Program
     {
-        private void executaEuler()
+        private void exibeEulerModular(List<Dictionary<double, double>> listaDeRespostas)
         {
-            FuncoesDeEuler funcExemplo1 = new FuncoesDeEuler();
-            funcExemplo1.EulerSimples(0, 4, 0.5);
-            funcExemplo1.EulerSimples();
-
-            Console.WriteLine("Execucao da funcao modular melhorada de euler");
-            List<Dictionary<double, double>> respostasxy = funcExemplo1.EulerModularMelhorada(1, 0, 4, 0.5, 10);
-
-            foreach (Dictionary<double, double> valorDic in respostasxy)
+            foreach (Dictionary<double, double> valorDic in listaDeRespostas)
             {
                 foreach (var key in valorDic.Keys)
                 {
@@ -25,16 +18,34 @@ namespace MetodosDeRungeKutta
                     Console.WriteLine();
                 }
             }
-
             Console.ReadLine();
+        }
+
+        private void executaEuler()
+        {
+            /*
+            FuncoesDeEuler funcExemplo1 = new FuncoesDeEuler();
+            funcExemplo1.EulerSimples(0, 4, 0.5);
+            funcExemplo1.EulerSimples();
+
+            Console.WriteLine("Execucao da funcao modular melhorada de euler");
+            List<Dictionary<double, double>> respostasxy = funcExemplo1.EulerModularMelhorada(1, 0, 4, 0.5, 10);
+
+            exibeEulerModular(respostasxy);
+            */
 
         }
 
         static void Main(string[] args)
         {
+            /*
             Program euler = new Program();
             euler.executaEuler();
-            
+            */
+            FuncoesDeEuler eulerTeste = new FuncoesDeEuler();
+            eulerTeste.EulerModularMelhorada2(1, 0, 4, 0.5, 8);
+            Console.ReadLine();
+
         }
     }
 }

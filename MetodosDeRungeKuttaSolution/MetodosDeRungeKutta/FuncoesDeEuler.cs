@@ -92,7 +92,8 @@ namespace MetodosDeRungeKutta
 
         }
 
-
+        /*VERSAO 1 DA IMPLEMENTACAO DO ALGORITMO MELHORADO*/
+        /*
         public List<Dictionary<double,double>> EulerModularMelhorada(double y, double xi, double xf, double dx, double xout)
         {
             List<Dictionary<double, double>> listaRespostasXY = new List<Dictionary<double, double>>();
@@ -172,5 +173,92 @@ namespace MetodosDeRungeKutta
 
             return dydx;
         }
+        */
+
+
+
+        /*VERSAO 2 DA IMPLEMENTACAO DO ALGORITMO MELHORADO*/
+        public void EulerModularMelhorada2(double y, double xi, double xf, double dx, double xout)
+        {
+            double x, xend, h;
+            int m;
+            double[] xp = new double[99];
+            double[] yp = new double[99];
+
+            x = xi;
+            m = 0;
+            yp[m] = x;
+            yp[m] = y;
+
+            while (true)
+            {
+                xend = x + xout;
+                if (xend > xf)
+                {
+                    xend = xf;
+                }
+                h = dx;
+                Integrador(ref x, ref y, h, xend, ref yp, ref xp, m);
+                //m = m + 1;
+                //adiciona x e y no vetor
+                if (x >= xf)
+                {
+                    break;
+                }
+
+            }
+            //Mostra os resultados de 0 ate xout
+            Console.WriteLine("Intervalo de saida definido de 0 até " + xout);
+            Console.WriteLine();
+            for (int i = 0; i <= xout; i++)
+            {
+                
+                Console.WriteLine("x["+i+"]: " + xp[i]);
+                Console.WriteLine("y["+i+"]: " + yp[i]);
+                Console.WriteLine();
+            }
+        }
+
+        private void Integrador(ref double x, ref double y, double h, double xend, ref double[] yp, ref double[] xp, int m)
+        {
+            ++m;
+            while (true)
+            {
+                if (xend - x < h)
+                {
+                    h = xend - x;
+                }
+                //Euler(x, y, h, ynew);
+                y = Euler(ref x, y, h);
+                yp[m] = y;
+                xp[m] = x;
+
+                if (x >= xend)
+                {
+                    break;
+                }
+                m = m + 1;
+            }
+        }
+
+        private double Euler(ref double x, double y, double h)
+        {
+            //Devis(x, y, h, ynew);
+            //ynew = y + dydx * h;
+            double ynew;
+            ynew = y + Derivs(x, y, h) * h;
+            x += h;
+            return ynew;
+        }
+
+        private double Derivs(double x, double y, double dx)
+        {
+            double dydx = ExemploFuncoes.FuncaoEulerSimples(x);
+            y += dydx * dx;
+            x += dx;
+
+            return dydx;
+        }
     }
 }
+
