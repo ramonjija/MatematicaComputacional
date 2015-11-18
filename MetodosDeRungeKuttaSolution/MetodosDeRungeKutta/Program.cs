@@ -41,10 +41,17 @@ namespace MetodosDeRungeKutta
             /*
             Program euler = new Program();
             euler.executaEuler();
+            
+            
+            CORRETO
             */
             FuncoesDeEuler eulerTeste = new FuncoesDeEuler();
-            eulerTeste.EulerModularMelhorada2(1, 0, 20, 0.5, 20);
+            eulerTeste.EulerModularMelhorada2(1, 0, 4, 0.5, 7);
             Console.ReadLine();
+            
+            FuncoesDeRKeRalston testeRalston = new FuncoesDeRKeRalston();
+            testeRalston.CalculaRalston(0,4,0.5);
+            Console.Read();
 
         }
     }

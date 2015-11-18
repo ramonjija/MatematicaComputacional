@@ -252,6 +252,14 @@ namespace MetodosDeRungeKutta
             return ynew;
         }
 
+        public double DerivK1(double x, double y, double dx)
+        {
+            double dydx = ExemploFuncoes.FuncaoEulerSimples(x);
+            y += dydx * dx;
+            x += dx;
+
+            return dydx;
+        }
         private double Derivs(double x, double y, double dx)
         {
             double dydx = ExemploFuncoes.FuncaoEulerSimples(x);
