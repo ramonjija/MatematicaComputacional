@@ -48,11 +48,14 @@ namespace MetodosDeRungeKutta
             FuncoesDeEuler eulerTeste = new FuncoesDeEuler();
             eulerTeste.EulerModularMelhorada2(1, 0, 4, 0.5, 7);
             Console.ReadLine();
-            
-            FuncoesDeRKeRalston testeRalston = new FuncoesDeRKeRalston();
-            testeRalston.CalculaRalston(0,4,0.5);
-            Console.Read();
 
+            FuncoesDeRKeRalston testeRalston = new FuncoesDeRKeRalston();
+            testeRalston.CalculaRalston(0, 4, 0.5);
+            Console.ReadLine();
+
+            FuncoesDeRKeRalston testeRK4 = new FuncoesDeRKeRalston();
+            testeRK4.CalculaRK4Ordem(0, 4, 0.5);
+            Console.ReadLine();
         }
     }
 }
