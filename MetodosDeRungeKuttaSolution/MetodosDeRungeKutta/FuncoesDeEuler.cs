@@ -178,7 +178,7 @@ namespace MetodosDeRungeKutta
 
 
         /*VERSAO 2 DA IMPLEMENTACAO DO ALGORITMO MELHORADO*/
-        public void EulerModularMelhorada2(double y, double xi, double xf, double dx, double xout)
+        public double[] EulerModularMelhorada2(double y, double xi, double xf, double dx, double xout)
         {
             double x, xend, h;
             int m;
@@ -217,6 +217,7 @@ namespace MetodosDeRungeKutta
                 Console.WriteLine("y["+i+"]: " + yp[i]);
                 Console.WriteLine();
             }
+            return yp;
         }
 
         private void Integrador(ref double x, double y, double h, double xend, ref double[] yp, ref double[] xp, int m)

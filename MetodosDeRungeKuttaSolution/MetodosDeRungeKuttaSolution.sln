@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetodosDeRungeKutta", "Meto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funcoes", "Funcoes\Funcoes.csproj", "{69779F0C-C07E-4DCE-A57E-B257258EF330}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabelaAppForm", "TabelaAppForm\TabelaAppForm.csproj", "{7DD41215-8E2B-4580-AD41-B5826A903D47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{69779F0C-C07E-4DCE-A57E-B257258EF330}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69779F0C-C07E-4DCE-A57E-B257258EF330}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69779F0C-C07E-4DCE-A57E-B257258EF330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DD41215-8E2B-4580-AD41-B5826A903D47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD41215-8E2B-4580-AD41-B5826A903D47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD41215-8E2B-4580-AD41-B5826A903D47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD41215-8E2B-4580-AD41-B5826A903D47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
