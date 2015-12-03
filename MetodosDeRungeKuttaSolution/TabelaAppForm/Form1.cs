@@ -92,8 +92,8 @@ namespace TabelaAppForm
         {
             double[] valoresRungeKutta4;
             FuncoesDeRKeRalston execucaoRungeKutta4 = new FuncoesDeRKeRalston();
-            valoryRungeKutta4 = execucaoRungeKutta4.CalculaRK4Ordem(xi, xf, h);
-            return valoryRungeKutta4;
+            valoresRungeKutta4 = execucaoRungeKutta4.CalculaRK4Ordem(xi, xf, h);
+            return valoresRungeKutta4;
         }
     }
 }

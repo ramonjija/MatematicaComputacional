@@ -208,6 +208,7 @@ namespace MetodosDeRungeKutta
 
             }
             //Mostra os resultados de 0 ate xout
+            Console.WriteLine("Metodo de Euler");
             Console.WriteLine("Intervalo de saida definido de 0 até " + xout);
             Console.WriteLine();
             for (int i = 0; i <= xout; i++)
