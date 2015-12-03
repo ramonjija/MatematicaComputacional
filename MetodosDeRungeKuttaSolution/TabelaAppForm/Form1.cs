@@ -43,6 +43,7 @@ namespace TabelaAppForm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            listView1.Items.Clear();
             valorx = new double[] { 0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0 };
             valory = new double[] { 1.0, 3.21875, 3.0, 2.21875, 2.0, 2.71875, 4.0, 4.71875, 3.0 };
             valoryEuler = ObtemValoresEuler(1, 0, 4, 0.5, 9);
